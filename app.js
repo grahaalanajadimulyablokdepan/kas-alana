@@ -132,3 +132,37 @@ document.getElementById("hasil").innerHTML=html
 })
 
 }
+
+function loadChart(){
+
+let ctx=document.getElementById("chart")
+
+new Chart(ctx,{
+
+type:"bar",
+
+data:{
+
+labels:["Kas Masuk","Pengeluaran"],
+
+datasets:[{
+
+label:"Kas",
+
+data:[1000000,300000],
+
+backgroundColor:["green","red"]
+
+}]
+
+}
+
+})
+
+}
+
+function exportKas(){
+
+alert("Fitur export laporan akan dibuat ke Excel")
+
+}
