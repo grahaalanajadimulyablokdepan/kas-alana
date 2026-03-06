@@ -7,6 +7,8 @@
 
 <title>Kas Blok Depan Graha Alana</title>
 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
 <link rel="stylesheet" href="style.css">
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -18,59 +20,71 @@
 
 <body>
 
-<header>
+<header class="bg-dark text-white text-center py-4">
 <h1>Kas Blok Depan Graha Alana</h1>
 <p>Blok A1 • A2 • A3 • B1 • B2 • B3</p>
 </header>
 
-<div id="loginBox" style="padding:20px;background:#fff;border:1px solid #ddd;margin:20px">
+<div id="loginBox" class="container mt-4">
+<div class="card p-4 shadow">
 <h3>Login Pengurus</h3>
 
-<input id="adminPass" type="password" placeholder="Password pengurus">
+<input id="adminPass" class="form-control mb-3" type="password" placeholder="Password pengurus">
 
-<button onclick="loginAdmin()">Login</button>
+<button class="btn btn-primary" onclick="loginAdmin()">Login</button>
+</div>
+</div>
+
+<div class="container mt-4">
+
+<div class="row g-3">
+
+<div class="col-md-4">
+<div class="card text-center shadow">
+<div class="card-body">
+<h5>Total Kas</h5>
+<h3 id="totalKas">Rp0</h3>
+</div>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card text-center shadow">
+<div class="card-body">
+<h5>Iuran Masuk</h5>
+<h3 id="totalIuran">Rp0</h3>
+</div>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card text-center shadow">
+<div class="card-body">
+<h5>Pengeluaran</h5>
+<h3 id="totalKeluar">Rp0</h3>
+</div>
+</div>
+</div>
 
 </div>
 
-<div class="container">
-
-<div class="dashboard">
-
-<div class="card">
-<h3>Total Kas</h3>
-<p id="totalKas">Rp0</p>
-</div>
-
-<div class="card">
-<h3>Iuran Masuk</h3>
-<p id="totalIuran">Rp0</p>
-</div>
-
-<div class="card">
-<h3>Pengeluaran</h3>
-<p id="totalKeluar">Rp0</p>
-</div>
-
-</div>
-
-<div class="card">
-
+<div class="card mt-4 shadow">
+<div class="card-body">
 <h2>Grafik Kas</h2>
-
 <canvas id="chart"></canvas>
-
 </div>
-
+</div>
 
 <div id="adminPanel" style="display:none">
 
-<div class="card">
+<div class="card mt-4 shadow">
+<div class="card-body">
 
 <h2>Input Iuran</h2>
 
-<input id="nama" placeholder="Nama warga">
+<input class="form-control mb-2" id="nama" placeholder="Nama warga">
 
-<select id="blok">
+<select class="form-control mb-2" id="blok">
 <option>A1</option>
 <option>A2</option>
 <option>A3</option>
@@ -79,9 +93,9 @@
 <option>B3</option>
 </select>
 
-<input id="rumah" placeholder="Nomor rumah">
+<input class="form-control mb-2" id="rumah" placeholder="Nomor rumah">
 
-<select id="bulan">
+<select class="form-control mb-2" id="bulan">
 <option>Januari</option>
 <option>Februari</option>
 <option>Maret</option>
@@ -96,46 +110,49 @@
 <option>Desember</option>
 </select>
 
-<input id="tahun" placeholder="Tahun (contoh 2026)">
+<input class="form-control mb-2" id="tahun" placeholder="Tahun (contoh 2026)">
 
-<input id="jumlah" placeholder="Jumlah iuran">
+<input class="form-control mb-3" id="jumlah" placeholder="Jumlah iuran">
 
-<button onclick="tambahIuran()">Simpan Iuran</button>
+<button class="btn btn-success" onclick="tambahIuran()">Simpan Iuran</button>
 
 </div>
+</div>
 
-
-<div class="card">
+<div class="card mt-4 shadow">
+<div class="card-body">
 
 <h2>Input Pengeluaran</h2>
 
-<input id="ket" placeholder="Keterangan">
+<input class="form-control mb-2" id="ket" placeholder="Keterangan">
 
-<input id="jumlahKeluar" placeholder="Jumlah pengeluaran">
+<input class="form-control mb-3" id="jumlahKeluar" placeholder="Jumlah pengeluaran">
 
-<button onclick="tambahPengeluaran()">Simpan</button>
+<button class="btn btn-danger" onclick="tambahPengeluaran()">Simpan</button>
 
+</div>
 </div>
 
 </div>
 
-
-<div class="card">
+<div class="card mt-4 shadow">
+<div class="card-body">
 
 <h2>Cek Iuran Rumah</h2>
 
-<input id="cek" placeholder="contoh A1-10" onkeyup="cekRumah()">
+<input class="form-control mb-3" id="cek" placeholder="contoh A1-10" onkeyup="cekRumah()">
 
 <div id="hasil"></div>
 
 </div>
+</div>
 
-
-<div class="card">
+<div class="card mt-4 shadow">
+<div class="card-body">
 
 <h2>Riwayat Iuran</h2>
 
-<table border="1" width="100%">
+<table class="table table-bordered">
 
 <thead>
 <tr>
@@ -153,12 +170,14 @@
 </table>
 
 </div>
+</div>
 
 </div>
 
-
 <script src="firebase.js"></script>
 <script src="app.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
 
