@@ -181,21 +181,18 @@ Login
 </div>
 
 
-
 <!-- DASHBOARD -->
 
 <div class="row mt-4 g-3">
 
 <div class="col-md-4">
 
-<div class="dashboard-card kas" data-bs-toggle="modal" data-bs-target="#modalKas">
+<div class="dashboard-card kas">
 
 <h6>Total Kas</h6>
 
 <h2 id="totalKas">Rp0</h2>
 
-<small>klik untuk melihat rincian kas</small>
-
 </div>
 
 </div>
@@ -203,14 +200,12 @@ Login
 
 <div class="col-md-4">
 
-<div class="dashboard-card iuran" data-bs-toggle="modal" data-bs-target="#modalIuran">
+<div class="dashboard-card iuran">
 
 <h6>Iuran Masuk</h6>
 
 <h2 id="totalIuran">Rp0</h2>
 
-<small>klik untuk melihat detail iuran</small>
-
 </div>
 
 </div>
@@ -218,14 +213,12 @@ Login
 
 <div class="col-md-4">
 
-<div class="dashboard-card keluar" data-bs-toggle="modal" data-bs-target="#modalKeluar">
+<div class="dashboard-card keluar">
 
 <h6>Pengeluaran</h6>
 
 <h2 id="totalKeluar">Rp0</h2>
 
-<small>klik untuk melihat detail pengeluaran</small>
-
 </div>
 
 </div>
@@ -233,14 +226,13 @@ Login
 </div>
 
 
-
-<!-- STATISTIK RUMAH -->
+<!-- STATISTIK -->
 
 <div class="row mt-4 g-3">
 
 <div class="col-md-4">
 
-<div class="card shadow text-center p-3">
+<div class="card text-center shadow p-3">
 
 <h6>Total Rumah</h6>
 
@@ -253,7 +245,7 @@ Login
 
 <div class="col-md-4">
 
-<div class="card shadow text-center p-3">
+<div class="card text-center shadow p-3">
 
 <h6>Sudah Bayar</h6>
 
@@ -266,7 +258,7 @@ Login
 
 <div class="col-md-4">
 
-<div class="card shadow text-center p-3">
+<div class="card text-center shadow p-3">
 
 <h6>Belum Bayar</h6>
 
@@ -279,60 +271,132 @@ Login
 </div>
 
 
-
-<!-- PROGRESS PEMBAYARAN -->
-
-<div class="card shadow mt-3 p-4">
-
-<h6>Progress Pembayaran Iuran</h6>
-
-<div class="progress">
-
-<div id="progressBayar"
-class="progress-bar bg-success"
-style="width:0%">
-
-0%
-
-</div>
-
-</div>
-
-</div>
-
-
-
 <!-- MODALS -->
 
+<!-- TENTANG -->
+
 <div class="modal fade" id="modalTentang">
-
 <div class="modal-dialog">
-
 <div class="modal-content">
-
 <div class="modal-header">
-
 <h5>Tentang Perumahan</h5>
-
 <button class="btn-close" data-bs-dismiss="modal"></button>
-
+</div>
+<div class="modal-body">
+Perumahan Graha Alana merupakan lingkungan hunian yang nyaman dan tertata rapi.
+</div>
+</div>
+</div>
 </div>
 
+
+<!-- VISI -->
+
+<div class="modal fade" id="modalVisi">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5>Visi & Misi</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
 <div class="modal-body">
 
-Perumahan Graha Alana merupakan lingkungan hunian yang nyaman dan tertata rapi.
+Visi: Mewujudkan lingkungan aman dan nyaman.
+
+<ul>
+<li>Menjaga kebersihan</li>
+<li>Menjaga keamanan</li>
+<li>Meningkatkan solidaritas</li>
+</ul>
 
 </div>
-
 </div>
-
 </div>
-
 </div>
 
 
+<!-- FASILITAS -->
 
-<!-- KONTAK PENGURUS -->
+<div class="modal fade" id="modalFasilitas">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5>Fasilitas Lingkungan</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+
+• Pos keamanan  
+• Lampu jalan  
+• Area parkir  
+• Jalan lingkungan
+
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- KEAMANAN -->
+
+<div class="modal fade" id="modalKeamanan">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5>Sistem Keamanan</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+
+Keamanan lingkungan dijaga melalui patroli malam dan pengawasan warga.
+
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- PERATURAN -->
+
+<div class="modal fade" id="modalPeraturan">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5>Peraturan Warga</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+
+• Menjaga kebersihan  
+• Membayar iuran tepat waktu  
+• Menjaga ketertiban
+
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- PENGUMUMAN -->
+
+<div class="modal fade" id="modalPengumuman">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5>Pengumuman</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+
+Belum ada pengumuman terbaru.
+
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- KONTAK -->
 
 <div class="modal fade" id="modalKontak">
 
@@ -348,46 +412,17 @@ Perumahan Graha Alana merupakan lingkungan hunian yang nyaman dan tertata rapi.
 
 </div>
 
-<div class="modal-body">
-
-<div class="card text-center shadow">
-
-<div class="card-body">
-
-<img src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
-style="width:90px;border-radius:50%;margin-bottom:10px;">
+<div class="modal-body text-center">
 
 <h4>Caridi</h4>
 
-<p class="text-muted">
-
-Ketua Pengurus Blok A & B
-
-</p>
-
-<hr>
+<p>Ketua Pengurus Blok A & B</p>
 
 <h5>📱 0896-9984-6687</h5>
 
-<div class="d-grid gap-2 mt-3">
-
-<a href="https://wa.me/6289699846687"
-class="btn btn-success">
-
-💬 Chat WhatsApp
-
+<a href="https://wa.me/6289699846687" class="btn btn-success w-100 mt-3">
+Chat WhatsApp
 </a>
-
-<a href="tel:089699846687"
-class="btn btn-primary">
-
-📞 Telepon Langsung
-
-</a>
-
-</div>
-
-</div>
 
 </div>
 
