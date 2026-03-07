@@ -1,3 +1,5 @@
+/* PASSWORD LOGIN */
+
 const passwords=[
 "ketua123",
 "sekretaris123",
@@ -24,11 +26,22 @@ alert("Password salah")
 
 }
 
+
+/* FORMAT RUPIAH */
+
 function rupiah(n){
-return "Rp"+n.toLocaleString("id-ID")
+return "Rp"+Number(n).toLocaleString("id-ID")
 }
 
+
+/* TAMBAH IURAN */
+
+let prosesIuran=false
+
 function tambahIuran(){
+
+if(prosesIuran)return
+prosesIuran=true
 
 let nama=document.getElementById("nama").value
 let blok=document.getElementById("blok").value
@@ -36,6 +49,30 @@ let rumah=document.getElementById("rumah").value
 let bulan=document.getElementById("bulan").value
 let tahun=document.getElementById("tahun").value
 let jumlah=document.getElementById("jumlah").value
+
+if(!nama||!rumah||!jumlah){
+
+alert("Data belum lengkap")
+prosesIuran=false
+return
+
+}
+
+db.collection("iuran")
+.where("blok","==",blok)
+.where("rumah","==",rumah)
+.where("bulan","==",bulan)
+.where("tahun","==",tahun)
+.get()
+.then(snapshot=>{
+
+if(!snapshot.empty){
+
+alert("Rumah ini sudah membayar bulan tersebut")
+prosesIuran=false
+return
+
+}
 
 db.collection("iuran").add({
 
@@ -46,33 +83,61 @@ bulan:bulan,
 tahun:tahun,
 jumlah:Number(jumlah)
 
-})
+}).then(()=>{
 
 alert("Iuran berhasil disimpan")
+
+document.getElementById("nama").value=""
+document.getElementById("rumah").value=""
+document.getElementById("jumlah").value=""
 
 loadIuran()
 loadDashboard()
 updateMap()
 
+prosesIuran=false
+
+})
+
+})
+
 }
+
+
+/* TAMBAH PENGELUARAN */
 
 function tambahPengeluaran(){
 
 let ket=document.getElementById("ket").value
 let jumlah=document.getElementById("jumlahKeluar").value
 
+if(!ket||!jumlah){
+
+alert("Data belum lengkap")
+return
+
+}
+
 db.collection("pengeluaran").add({
 
 ket:ket,
 jumlah:Number(jumlah)
 
-})
+}).then(()=>{
 
 alert("Pengeluaran berhasil disimpan")
 
+document.getElementById("ket").value=""
+document.getElementById("jumlahKeluar").value=""
+
 loadDashboard()
 
+})
+
 }
+
+
+/* LOAD RIWAYAT IURAN */
 
 function loadIuran(){
 
@@ -85,6 +150,7 @@ snapshot.forEach(doc=>{
 let d=doc.data()
 
 html+=`
+
 <tr>
 <td>${d.nama}</td>
 <td>${d.blok}</td>
@@ -93,6 +159,7 @@ html+=`
 <td>${d.tahun}</td>
 <td>${rupiah(d.jumlah)}</td>
 </tr>
+
 `
 
 })
@@ -102,6 +169,9 @@ document.getElementById("tabelIuran").innerHTML=html
 })
 
 }
+
+
+/* DASHBOARD */
 
 function loadDashboard(){
 
@@ -134,6 +204,9 @@ document.getElementById("totalKas").innerText=rupiah(kas)
 
 }
 
+
+/* EXPORT EXCEL */
+
 function exportExcel(){
 
 let table=document.querySelector("table")
@@ -144,6 +217,9 @@ XLSX.writeFile(wb,"laporan-kas.xlsx")
 
 }
 
+
+/* DATA BLOK RUMAH */
+
 const blokData={
 "A1":20,
 "A2":24,
@@ -153,6 +229,9 @@ const blokData={
 "B3":20
 }
 
+
+/* GENERATE MAP */
+
 function generateMap(){
 
 let html=""
@@ -160,26 +239,30 @@ let html=""
 for(let blok in blokData){
 
 html+=`
+
 <div class="blok">
 <h6>Blok ${blok}</h6>
 <div class="rumah-grid">
+
 `
 
 for(let i=1;i<=blokData[blok];i++){
 
 html+=`
+
 <div class="rumah belum" id="${blok}-${i}">
-
 ${blok}-${i}
-
 </div>
+
 `
 
 }
 
 html+=`
+
 </div>
 </div>
+
 `
 
 }
@@ -189,6 +272,9 @@ document.getElementById("mapPerumahan").innerHTML=html
 updateMap()
 
 }
+
+
+/* UPDATE STATUS MAP */
 
 function updateMap(){
 
@@ -215,10 +301,8 @@ el.classList.add("lunas")
 
 }
 
-loadDashboard()
-loadIuran()
-generateMap()
 
+/* POPUP TOTAL KAS */
 
 function showKas(){
 
@@ -251,6 +335,9 @@ new bootstrap.Modal(document.getElementById("modalKas")).show()
 
 }
 
+
+/* POPUP IURAN */
+
 function showIuran(){
 
 let html=""
@@ -271,7 +358,10 @@ html+=`
 <td>${d.tahun}</td>
 <td>${rupiah(d.jumlah)}</td>
 </tr>
-`})
+
+`
+
+})
 
 document.getElementById("detailTabelIuran").innerHTML=html
 
@@ -280,6 +370,9 @@ new bootstrap.Modal(document.getElementById("modalIuran")).show()
 })
 
 }
+
+
+/* POPUP PENGELUARAN */
 
 function showKeluar(){
 
@@ -297,7 +390,10 @@ html+=`
 <td>${d.ket}</td>
 <td>${rupiah(d.jumlah)}</td>
 </tr>
-`})
+
+`
+
+})
 
 document.getElementById("detailTabelKeluar").innerHTML=html
 
@@ -306,3 +402,10 @@ new bootstrap.Modal(document.getElementById("modalKeluar")).show()
 })
 
 }
+
+
+/* LOAD AWAL WEBSITE */
+
+loadDashboard()
+loadIuran()
+generateMap()
