@@ -113,7 +113,7 @@ html+=`<div class="blok">
 
 for(let i=1;i<=blokData[blok];i++){
 
-let status=Math.random()>0.5?"lunas":"belum"
+let status="belum"
 
 html+=`
 <div class="rumah ${status}" 
