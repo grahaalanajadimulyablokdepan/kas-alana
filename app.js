@@ -76,3 +76,54 @@ let wb=XLSX.utils.table_to_book(table)
 XLSX.writeFile(wb,"laporan-kas.xlsx")
 
 }
+const blokData={
+"A1":20,
+"A2":24,
+"A3":10,
+"B1":20,
+"B2":20,
+"B3":20
+}
+
+function generateMap(){
+
+let html=""
+
+for(let blok in blokData){
+
+html+=`<div class="blok">
+<div class="blok-title">Blok ${blok}</div>
+<div class="rumah-grid">`
+
+for(let i=1;i<=blokData[blok];i++){
+
+let status=Math.random()>0.5?"lunas":"belum"
+
+html+=`
+<div class="rumah ${status}" 
+onclick="lihatRumah('${blok}',${i},'${status}')">
+
+${blok}-${i}
+
+</div>`
+
+}
+
+html+=`</div></div>`
+
+}
+
+document.getElementById("mapPerumahan").innerHTML=html
+
+}
+
+function lihatRumah(blok,no,status){
+
+let teks=status=="lunas"?"LUNAS":"BELUM BAYAR"
+
+alert(`Rumah ${blok}-${no}
+Status: ${teks}`)
+
+}
+
+generateMap()
