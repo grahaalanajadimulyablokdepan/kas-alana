@@ -165,3 +165,54 @@ let wb=XLSX.utils.table_to_book(table)
 XLSX.writeFile(wb,"laporan-kas.xlsx")
 
 }
+/* DATA BLOK RUMAH */
+
+const blokData={
+"A1":20,
+"A2":24,
+"A3":10,
+"B1":20,
+"B2":20,
+"B3":20
+}
+
+
+
+/* GENERATE PETA RUMAH */
+
+function generateMap(){
+
+let html=""
+
+for(let blok in blokData){
+
+html+=`
+<div class="blok">
+<h6>Blok ${blok}</h6>
+<div class="rumah-grid">
+`
+
+for(let i=1;i<=blokData[blok];i++){
+
+html+=`
+<div class="rumah belum">
+
+${blok}-${i}
+
+</div>
+`
+
+}
+
+html+=`
+</div>
+</div>
+`
+
+}
+
+document.getElementById("mapPerumahan").innerHTML=html
+
+}
+
+generateMap()
