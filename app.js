@@ -218,3 +218,91 @@ el.classList.add("lunas")
 loadDashboard()
 loadIuran()
 generateMap()
+
+
+function showKas(){
+
+let totalIuran=0
+let totalKeluar=0
+
+db.collection("iuran").get().then(snapshot=>{
+
+snapshot.forEach(doc=>{
+totalIuran+=doc.data().jumlah
+})
+
+db.collection("pengeluaran").get().then(snapshot=>{
+
+snapshot.forEach(doc=>{
+totalKeluar+=doc.data().jumlah
+})
+
+let kas=totalIuran-totalKeluar
+
+document.getElementById("detailIuran").innerText=rupiah(totalIuran)
+document.getElementById("detailKeluar").innerText=rupiah(totalKeluar)
+document.getElementById("detailKas").innerText=rupiah(kas)
+
+new bootstrap.Modal(document.getElementById("modalKas")).show()
+
+})
+
+})
+
+}
+
+function showIuran(){
+
+let html=""
+
+db.collection("iuran").get().then(snapshot=>{
+
+snapshot.forEach(doc=>{
+
+let d=doc.data()
+
+html+=`
+
+<tr>
+<td>${d.nama}</td>
+<td>${d.blok}</td>
+<td>${d.rumah}</td>
+<td>${d.bulan}</td>
+<td>${d.tahun}</td>
+<td>${rupiah(d.jumlah)}</td>
+</tr>
+`})
+
+document.getElementById("detailTabelIuran").innerHTML=html
+
+new bootstrap.Modal(document.getElementById("modalIuran")).show()
+
+})
+
+}
+
+function showKeluar(){
+
+let html=""
+
+db.collection("pengeluaran").get().then(snapshot=>{
+
+snapshot.forEach(doc=>{
+
+let d=doc.data()
+
+html+=`
+
+<tr>
+<td>${d.ket}</td>
+<td>${rupiah(d.jumlah)}</td>
+</tr>
+`})
+
+document.getElementById("detailTabelKeluar").innerHTML=html
+
+new bootstrap.Modal(document.getElementById("modalKeluar")).show()
+
+})
+
+}
