@@ -4,7 +4,7 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Kas Blok Depan Graha Alana</title>
 
@@ -19,14 +19,21 @@
 
 body{
 background:#f4f6fb;
-font-family:sans-serif;
+font-family:system-ui;
 }
 
-header{
+.navbar{
 background:#0f172a;
+}
+
+.navbar h4{
 color:white;
-padding:30px;
-text-align:center;
+margin:0;
+}
+
+.header-sub{
+color:#cbd5e1;
+font-size:14px;
 }
 
 .card{
@@ -34,8 +41,19 @@ border:none;
 border-radius:15px;
 }
 
-.card h3{
+.card h5{
+font-weight:600;
+}
+
+.dashboard-card h2{
 font-weight:bold;
+}
+
+.footer{
+text-align:center;
+padding:20px;
+color:#777;
+font-size:13px;
 }
 
 </style>
@@ -44,23 +62,32 @@ font-weight:bold;
 
 <body>
 
-<header>
+<nav class="navbar p-3">
 
-<h1>Kas Blok Depan Graha Alana</h1>
-<p>Blok A1 • A2 • A3 • B1 • B2 • B3</p>
+<div class="container text-center d-block">
 
-</header>
+<h4>Kas Blok Depan Graha Alana</h4>
+
+<div class="header-sub">
+Blok A1 • A2 • A3 • B1 • B2 • B3
+</div>
+
+</div>
+
+</nav>
 
 
 <div class="container mt-4">
 
 <div id="loginBox" class="card shadow p-4 mb-4">
 
-<h4>Login Pengurus</h4>
+<h5>Login Pengurus</h5>
 
 <input id="adminPass" class="form-control mb-3" type="password" placeholder="Password pengurus">
 
-<button class="btn btn-primary" onclick="loginAdmin()">Login</button>
+<button class="btn btn-primary w-100" onclick="loginAdmin()">
+Login
+</button>
 
 </div>
 
@@ -69,7 +96,7 @@ font-weight:bold;
 
 <div class="col-md-4">
 
-<div class="card shadow text-center p-3">
+<div class="card dashboard-card shadow text-center p-3">
 
 <h5>Total Kas</h5>
 
@@ -82,7 +109,7 @@ font-weight:bold;
 
 <div class="col-md-4">
 
-<div class="card shadow text-center p-3">
+<div class="card dashboard-card shadow text-center p-3">
 
 <h5>Iuran Masuk</h5>
 
@@ -95,7 +122,7 @@ font-weight:bold;
 
 <div class="col-md-4">
 
-<div class="card shadow text-center p-3">
+<div class="card dashboard-card shadow text-center p-3">
 
 <h5>Pengeluaran</h5>
 
@@ -108,24 +135,38 @@ font-weight:bold;
 </div>
 
 
+
 <div class="card shadow mt-4 p-4">
 
-<h4>Grafik Kas</h4>
+<h5>Grafik Kas</h5>
 
 <canvas id="chart"></canvas>
 
 </div>
 
 
+
 <div id="adminPanel" style="display:none">
 
-<div class="row mt-4 g-3">
+<div class="d-flex justify-content-between mt-4">
+
+<h5>Panel Pengurus</h5>
+
+<button class="btn btn-sm btn-outline-danger" onclick="logoutAdmin()">
+Logout
+</button>
+
+</div>
+
+
+
+<div class="row mt-3 g-3">
 
 <div class="col-md-6">
 
 <div class="card shadow p-4">
 
-<h4>Input Iuran</h4>
+<h5>Input Iuran</h5>
 
 <input id="nama" class="form-control mb-2" placeholder="Nama warga">
 
@@ -159,28 +200,33 @@ font-weight:bold;
 
 </select>
 
-<input id="tahun" class="form-control mb-2" placeholder="Tahun (2026)">
+<input id="tahun" class="form-control mb-2" readonly>
 
 <input id="jumlah" class="form-control mb-3" placeholder="Jumlah iuran">
 
-<button class="btn btn-success w-100" onclick="tambahIuran()">Simpan Iuran</button>
+<button class="btn btn-success w-100" onclick="tambahIuran()">
+Simpan Iuran
+</button>
 
 </div>
 
 </div>
+
 
 
 <div class="col-md-6">
 
 <div class="card shadow p-4">
 
-<h4>Input Pengeluaran</h4>
+<h5>Input Pengeluaran</h5>
 
 <input id="ket" class="form-control mb-2" placeholder="Keterangan">
 
 <input id="jumlahKeluar" class="form-control mb-3" placeholder="Jumlah pengeluaran">
 
-<button class="btn btn-danger w-100" onclick="tambahPengeluaran()">Simpan</button>
+<button class="btn btn-danger w-100" onclick="tambahPengeluaran()">
+Simpan
+</button>
 
 </div>
 
@@ -189,11 +235,12 @@ font-weight:bold;
 </div>
 
 </div>
+
 
 
 <div class="card shadow mt-4 p-4">
 
-<h4>Cek Iuran Rumah</h4>
+<h5>Cek Iuran Rumah</h5>
 
 <input id="cek" class="form-control mb-3" placeholder="contoh A1-10" onkeyup="cekRumah()">
 
@@ -202,9 +249,10 @@ font-weight:bold;
 </div>
 
 
+
 <div class="card shadow mt-4 p-4">
 
-<h4>Riwayat Iuran</h4>
+<h5>Riwayat Iuran</h5>
 
 <button class="btn btn-success mb-3" onclick="exportKas()">
 Download Laporan
@@ -238,7 +286,15 @@ Download Laporan
 </div>
 
 
+<div class="footer mt-4">
+
+Kas Blok Depan Graha Alana • Sistem Kas Digital
+
 </div>
+
+
+</div>
+
 
 
 <script src="firebase.js"></script>
@@ -248,6 +304,9 @@ Download Laporan
 
 
 <script>
+
+document.getElementById("tahun").value = new Date().getFullYear()
+
 
 function loginAdmin(){
 
@@ -266,9 +325,19 @@ alert("Password salah")
 
 }
 
+
+function logoutAdmin(){
+
+document.getElementById("adminPanel").style.display="none"
+document.getElementById("loginBox").style.display="block"
+
+}
+
+
+
 function exportKas(){
 
-alert("Fitur export laporan akan dibuat ke Excel")
+alert("Fitur export laporan Excel akan ditambahkan")
 
 }
 
