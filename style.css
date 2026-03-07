@@ -69,3 +69,8 @@ grid-template-columns:1fr 1fr 1fr;
 }
 
 }
+
+.logo{
+height:50px;
+margin-right:10px;
+}
