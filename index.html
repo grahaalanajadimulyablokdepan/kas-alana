@@ -72,33 +72,19 @@ data-bs-target="#menu">
 
 <div class="d-grid gap-3">
 
-<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTentang">
-🏡 Tentang Perumahan
-</button>
+<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTentang">🏡 Tentang Perumahan</button>
 
-<button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalVisi">
-🌿 Visi & Misi Lingkungan
-</button>
+<button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalVisi">🌿 Visi & Misi Lingkungan</button>
 
-<button class="btn btn-info text-white" data-bs-toggle="modal" data-bs-target="#modalFasilitas">
-🏞 Fasilitas Lingkungan
-</button>
+<button class="btn btn-info text-white" data-bs-toggle="modal" data-bs-target="#modalFasilitas">🏞 Fasilitas Lingkungan</button>
 
-<button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalKeamanan">
-🔐 Sistem Keamanan
-</button>
+<button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalKeamanan">🔐 Sistem Keamanan</button>
 
-<button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modalPeraturan">
-📜 Peraturan Warga
-</button>
+<button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modalPeraturan">📜 Peraturan Warga</button>
 
-<button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalPengumuman">
-📢 Pengumuman
-</button>
+<button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalPengumuman">📢 Pengumuman</button>
 
-<button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalKontak">
-☎ Kontak Pengurus
-</button>
+<button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalKontak">☎ Kontak Pengurus</button>
 
 </div>
 
@@ -117,9 +103,7 @@ data-bs-target="#menu">
 
 <input id="adminPass" type="password" class="form-control mb-3" placeholder="Password">
 
-<button class="btn btn-primary w-100" onclick="loginAdmin()">
-Login
-</button>
+<button class="btn btn-primary w-100" onclick="loginAdmin()">Login</button>
 
 </div>
 
@@ -139,14 +123,12 @@ Login
 <input id="nama" class="form-control mb-2" placeholder="Nama">
 
 <select id="blok" class="form-control mb-2">
-
 <option>A1</option>
 <option>A2</option>
 <option>A3</option>
 <option>B1</option>
 <option>B2</option>
 <option>B3</option>
-
 </select>
 
 <input id="rumah" class="form-control mb-2" placeholder="No Rumah">
@@ -187,7 +169,9 @@ Login
 
 <div class="col-md-4">
 
-<div class="dashboard-card kas">
+<div class="dashboard-card kas"
+data-bs-toggle="modal"
+data-bs-target="#modalKas">
 
 <h6>Total Kas</h6>
 
@@ -200,7 +184,9 @@ Login
 
 <div class="col-md-4">
 
-<div class="dashboard-card iuran">
+<div class="dashboard-card iuran"
+data-bs-toggle="modal"
+data-bs-target="#modalIuran">
 
 <h6>Iuran Masuk</h6>
 
@@ -213,7 +199,9 @@ Login
 
 <div class="col-md-4">
 
-<div class="dashboard-card keluar">
+<div class="dashboard-card keluar"
+data-bs-toggle="modal"
+data-bs-target="#modalKeluar">
 
 <h6>Pengeluaran</h6>
 
@@ -231,47 +219,94 @@ Login
 <div class="row mt-4 g-3">
 
 <div class="col-md-4">
-
 <div class="card text-center shadow p-3">
-
 <h6>Total Rumah</h6>
-
 <h2 id="totalRumah">0</h2>
-
 </div>
-
 </div>
-
 
 <div class="col-md-4">
-
 <div class="card text-center shadow p-3">
-
 <h6>Sudah Bayar</h6>
-
 <h2 id="rumahBayar">0</h2>
-
 </div>
-
 </div>
-
 
 <div class="col-md-4">
-
 <div class="card text-center shadow p-3">
-
 <h6>Belum Bayar</h6>
-
 <h2 id="rumahBelum">0</h2>
-
+</div>
 </div>
 
 </div>
 
+
+<!-- MODAL TOTAL KAS -->
+
+<div class="modal fade" id="modalKas">
+<div class="modal-dialog">
+<div class="modal-content">
+
+<div class="modal-header">
+<h5>Total Kas</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+
+<div class="modal-body">
+
+Total kas adalah saldo uang lingkungan setelah dikurangi seluruh pengeluaran operasional.
+
+</div>
+
+</div>
+</div>
 </div>
 
 
-<!-- MODALS -->
+<!-- MODAL IURAN -->
+
+<div class="modal fade" id="modalIuran">
+<div class="modal-dialog">
+<div class="modal-content">
+
+<div class="modal-header">
+<h5>Iuran Warga</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+
+<div class="modal-body">
+
+Total seluruh iuran warga yang telah masuk ke kas lingkungan.
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+<!-- MODAL PENGELUARAN -->
+
+<div class="modal fade" id="modalKeluar">
+<div class="modal-dialog">
+<div class="modal-content">
+
+<div class="modal-header">
+<h5>Pengeluaran Kas</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+
+<div class="modal-body">
+
+Total penggunaan dana kas untuk operasional lingkungan.
+
+</div>
+
+</div>
+</div>
+</div>
+
 
 <!-- TENTANG -->
 
@@ -284,112 +319,6 @@ Login
 </div>
 <div class="modal-body">
 Perumahan Graha Alana merupakan lingkungan hunian yang nyaman dan tertata rapi.
-</div>
-</div>
-</div>
-</div>
-
-
-<!-- VISI -->
-
-<div class="modal fade" id="modalVisi">
-<div class="modal-dialog">
-<div class="modal-content">
-<div class="modal-header">
-<h5>Visi & Misi</h5>
-<button class="btn-close" data-bs-dismiss="modal"></button>
-</div>
-<div class="modal-body">
-
-Visi: Mewujudkan lingkungan aman dan nyaman.
-
-<ul>
-<li>Menjaga kebersihan</li>
-<li>Menjaga keamanan</li>
-<li>Meningkatkan solidaritas</li>
-</ul>
-
-</div>
-</div>
-</div>
-</div>
-
-
-<!-- FASILITAS -->
-
-<div class="modal fade" id="modalFasilitas">
-<div class="modal-dialog">
-<div class="modal-content">
-<div class="modal-header">
-<h5>Fasilitas Lingkungan</h5>
-<button class="btn-close" data-bs-dismiss="modal"></button>
-</div>
-<div class="modal-body">
-
-• Pos keamanan  
-• Lampu jalan  
-• Area parkir  
-• Jalan lingkungan
-
-</div>
-</div>
-</div>
-</div>
-
-
-<!-- KEAMANAN -->
-
-<div class="modal fade" id="modalKeamanan">
-<div class="modal-dialog">
-<div class="modal-content">
-<div class="modal-header">
-<h5>Sistem Keamanan</h5>
-<button class="btn-close" data-bs-dismiss="modal"></button>
-</div>
-<div class="modal-body">
-
-Keamanan lingkungan dijaga melalui patroli malam dan pengawasan warga.
-
-</div>
-</div>
-</div>
-</div>
-
-
-<!-- PERATURAN -->
-
-<div class="modal fade" id="modalPeraturan">
-<div class="modal-dialog">
-<div class="modal-content">
-<div class="modal-header">
-<h5>Peraturan Warga</h5>
-<button class="btn-close" data-bs-dismiss="modal"></button>
-</div>
-<div class="modal-body">
-
-• Menjaga kebersihan  
-• Membayar iuran tepat waktu  
-• Menjaga ketertiban
-
-</div>
-</div>
-</div>
-</div>
-
-
-<!-- PENGUMUMAN -->
-
-<div class="modal fade" id="modalPengumuman">
-<div class="modal-dialog">
-<div class="modal-content">
-<div class="modal-header">
-<h5>Pengumuman</h5>
-<button class="btn-close" data-bs-dismiss="modal"></button>
-</div>
-<div class="modal-body">
-
-Belum ada pengumuman terbaru.
-
 </div>
 </div>
 </div>
@@ -414,6 +343,9 @@ Belum ada pengumuman terbaru.
 
 <div class="modal-body text-center">
 
+<img src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+style="width:90px;border-radius:50%;margin-bottom:10px;">
+
 <h4>Caridi</h4>
 
 <p>Ketua Pengurus Blok A & B</p>
@@ -431,7 +363,6 @@ Chat WhatsApp
 </div>
 
 </div>
-
 
 
 <script src="firebase.js"></script>
