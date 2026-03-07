@@ -1,17 +1,6 @@
-/* GLOBAL */
-
 body{
 background:#f4f6fb;
-font-family:system-ui,-apple-system,Segoe UI,Roboto;
-margin:0;
-}
-
-
-/* NAVBAR */
-
-.navbar{
-background:linear-gradient(90deg,#0f172a,#1e293b);
-padding:12px 0;
+font-family:system-ui;
 }
 
 .logo{
@@ -19,158 +8,18 @@ height:40px;
 margin-right:10px;
 }
 
-.brand-text{
-color:white;
-font-weight:600;
-font-size:18px;
-}
-
 .header-sub{
 font-size:12px;
-color:#cbd5e1;
+opacity:0.7;
 }
-
-
-/* CARD */
 
 .card{
 border:none;
-border-radius:16px;
-box-shadow:0 6px 20px rgba(0,0,0,0.08);
+border-radius:15px;
 }
-
-
-/* FOOTER */
 
 .footer{
 text-align:center;
 padding:20px;
 color:#777;
-font-size:13px;
-margin-top:20px;
-}
-
-
-/* STATUS RUMAH */
-
-.status-box{
-display:grid;
-grid-template-columns:repeat(5,1fr);
-gap:10px;
-margin-top:10px;
-}
-
-
-/* STATUS WARNA */
-
-.lunas{
-background:#16a34a;
-color:white;
-padding:8px;
-border-radius:8px;
-text-align:center;
-font-size:13px;
-}
-
-.belum{
-background:#dc2626;
-color:white;
-padding:8px;
-border-radius:8px;
-text-align:center;
-font-size:13px;
-}
-
-
-/* ========================= */
-/* PETA PERUMAHAN */
-/* ========================= */
-
-#mapPerumahan{
-display:grid;
-gap:20px;
-margin-top:15px;
-}
-
-
-/* BLOK */
-
-.blok{
-background:white;
-padding:15px;
-border-radius:12px;
-box-shadow:0 3px 12px rgba(0,0,0,0.08);
-}
-
-
-/* JUDUL BLOK */
-
-.blok-title{
-font-weight:bold;
-margin-bottom:10px;
-font-size:15px;
-color:#111827;
-}
-
-
-/* GRID RUMAH */
-
-.rumah-grid{
-display:grid;
-grid-template-columns:repeat(5,1fr);
-gap:10px;
-}
-
-
-/* KOTAK RUMAH */
-
-.rumah{
-padding:10px;
-border-radius:8px;
-text-align:center;
-font-size:13px;
-cursor:pointer;
-font-weight:600;
-transition:all 0.2s ease;
-}
-
-
-/* HOVER RUMAH */
-
-.rumah:hover{
-transform:scale(1.05);
-box-shadow:0 4px 10px rgba(0,0,0,0.15);
-}
-
-
-/* ========================= */
-/* RESPONSIVE */
-/* ========================= */
-
-@media (max-width:768px){
-
-.rumah-grid{
-grid-template-columns:repeat(4,1fr);
-}
-
-.status-box{
-grid-template-columns:repeat(4,1fr);
-}
-
-}
-
-@media (max-width:500px){
-
-.rumah-grid{
-grid-template-columns:repeat(3,1fr);
-}
-
-.status-box{
-grid-template-columns:repeat(3,1fr);
-}
-
-.brand-text{
-font-size:16px;
-}
-
 }
