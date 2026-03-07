@@ -14,6 +14,7 @@ let pass=document.getElementById("adminPass").value
 if(passwords.includes(pass)){
 
 document.getElementById("loginBox").style.display="none"
+document.getElementById("adminPanel").style.display="block"
 
 }else{
 
