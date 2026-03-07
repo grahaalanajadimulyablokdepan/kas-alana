@@ -269,7 +269,7 @@ for(let i=1;i<=blokData[blok];i++){
 
 html+=`
 
-<div class="rumah belum" id="${blok}-${i}">
+<div class="rumah belum" id="${blok}-${i}" onclick="lihatRumah('${blok}','${i}')">
 
 ${blok}-${i}
 
@@ -294,6 +294,8 @@ updateMap()
 
 }
 
+}
+
 
 
 /* UPDATE MAP STATUS */
@@ -301,6 +303,14 @@ updateMap()
 function updateMap(){
 
 db.collection("iuran").get().then(snapshot=>{
+
+document.querySelectorAll(".rumah").forEach(r=>{
+
+r.classList.remove("lunas")
+
+r.classList.add("belum")
+
+})
 
 snapshot.forEach(doc=>{
 
@@ -313,6 +323,7 @@ let el=document.getElementById(id)
 if(el){
 
 el.classList.remove("belum")
+
 el.classList.add("lunas")
 
 }
@@ -439,3 +450,76 @@ new bootstrap.Modal(document.getElementById("modalKeluar")).show()
 loadDashboard()
 loadIuran()
 generateMap()
+
+function lihatRumah(blok,rumah){
+
+document.getElementById("judulRumah").innerText="Riwayat Rumah "+blok+"-"+rumah
+
+let html=""
+
+db.collection("iuran")
+.where("blok","==",blok)
+.where("rumah","==",rumah)
+.get()
+.then(snapshot=>{
+
+if(snapshot.empty){
+
+html="<tr><td colspan='4'>Belum ada pembayaran</td></tr>"
+
+}
+
+snapshot.forEach(doc=>{
+
+let d=doc.data()
+
+html+=`
+
+<tr>
+
+<td>${d.bulan}</td>
+
+<td>${d.tahun}</td>
+
+<td>${rupiah(d.jumlah)}</td>
+
+<td>
+
+<button class="btn btn-sm btn-danger" onclick="hapusIuran('${doc.id}')">
+
+Hapus
+
+</button>
+
+</td>
+
+</tr>
+
+`
+
+})
+
+document.getElementById("riwayatRumah").innerHTML=html
+
+new bootstrap.Modal(document.getElementById("modalRumah")).show()
+
+})
+
+}
+function hapusIuran(id){
+
+if(confirm("Hapus data ini?")){
+
+db.collection("iuran").doc(id).delete().then(()=>{
+
+alert("Data berhasil dihapus")
+
+loadDashboard()
+loadIuran()
+updateMap()
+
+})
+
+}
+
+}
