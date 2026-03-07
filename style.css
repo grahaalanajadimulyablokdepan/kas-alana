@@ -71,6 +71,8 @@ grid-template-columns:1fr 1fr 1fr;
 }
 
 .logo{
-height:50px;
+height:40px;
+width:auto;
+object-fit:contain;
 margin-right:10px;
 }
