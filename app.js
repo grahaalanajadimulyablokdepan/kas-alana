@@ -1,142 +1,78 @@
-let chart
+const passwords=[
+"ketua123",
+"sekretaris123",
+"bendahara123",
+"korlap123",
+"pengurus1",
+"pengurus2"
+]
 
-function rupiah(n){
-return "Rp " + Number(n).toLocaleString("id-ID")
-}
+function loginAdmin(){
 
-async function loadData(){
+let pass=document.getElementById("adminPass").value
 
-const iuranSnap = await db.collection("iuran").get()
-const keluarSnap = await db.collection("pengeluaran").get()
+if(passwords.includes(pass)){
 
-let iuran=[]
-let keluar=[]
+document.getElementById("loginBox").style.display="none"
 
-iuranSnap.forEach(doc=>{
-iuran.push(doc.data())
-})
+}else{
 
-keluarSnap.forEach(doc=>{
-keluar.push(doc.data())
-})
-
-render(iuran,keluar)
+alert("Password salah")
 
 }
 
-function render(iuran,keluar){
+}
 
-let totalIuran = iuran.reduce((a,b)=>a+Number(b.jumlah),0)
-let totalKeluar = keluar.reduce((a,b)=>a+Number(b.jumlah),0)
-let kas = totalIuran-totalKeluar
 
-document.getElementById("totalKas").innerText = rupiah(kas)
-document.getElementById("totalIuran").innerText = rupiah(totalIuran)
-document.getElementById("totalKeluar").innerText = rupiah(totalKeluar)
+/* NOMOR RUMAH */
 
-let tb = document.getElementById("tabelIuran")
-tb.innerHTML=""
+for(let i=1;i<=25;i++){
 
-iuran.forEach(d=>{
+let opt=document.createElement("option")
 
-let tr=document.createElement("tr")
+opt.value=i
+opt.text=i
 
-tr.innerHTML=`
-<td>${d.nama}</td>
-<td>${d.blok}</td>
-<td>${d.rumah}</td>
-<td>${d.bulan}</td>
-<td>${d.tahun}</td>
-<td>${rupiah(d.jumlah)}</td>
-`
-
-tb.appendChild(tr)
-
-})
-
-buatChart(totalIuran,totalKeluar,kas)
+document.getElementById("cekNomor").appendChild(opt)
 
 }
 
-function buatChart(iuran,keluar,kas){
 
-let ctx=document.getElementById("chart")
+/* STATUS RUMAH */
 
-if(chart) chart.destroy()
-
-chart = new Chart(ctx,{
-
-type:"bar",
-
-data:{
-labels:["Iuran","Pengeluaran","Kas"],
-datasets:[{
-label:"Kas",
-data:[iuran,keluar,kas],
-backgroundColor:["green","red","blue"]
-}]
-}
-
-})
-
-}
-
-async function tambahIuran(){
-
-await db.collection("iuran").add({
-
-nama:document.getElementById("nama").value,
-blok:document.getElementById("blok").value,
-rumah:document.getElementById("rumah").value,
-bulan:document.getElementById("bulan").value,
-tahun:document.getElementById("tahun").value,
-jumlah:document.getElementById("jumlah").value
-
-})
-
-loadData()
-
-}
-
-async function tambahPengeluaran(){
-
-await db.collection("pengeluaran").add({
-
-ket:document.getElementById("ket").value,
-jumlah:document.getElementById("jumlahKeluar").value
-
-})
-
-loadData()
-
-}
-
-async function cekRumah(){
-
-let blok=document.getElementById("cekBlok").value
-let rumah=document.getElementById("cekNomor").value
-
-const snap = await db.collection("iuran")
-.where("blok","==",blok)
-.where("rumah","==",rumah)
-.get()
+function loadStatus(){
 
 let html=""
 
-snap.forEach(doc=>{
+let blok=["A1","A2","A3","B1","B2","B3"]
 
-let d=doc.data()
+blok.forEach(b=>{
 
-html += `
-<div>
-${d.bulan} ${d.tahun} : <b>${rupiah(d.jumlah)}</b>
-</div>
-`
+for(let i=1;i<=25;i++){
 
-})
+let status=Math.random()>0.5?"lunas":"belum"
 
-document.getElementById("hasil").innerHTML = html || "Belum ada pembayaran"
+html+=`<div class="${status}">${b}-${i}</div>`
 
 }
 
-loadData()
+})
+
+document.getElementById("statusRumah").innerHTML=`<div class="status-box">${html}</div>`
+
+}
+
+loadStatus()
+
+
+/* EXPORT EXCEL */
+
+function exportExcel(){
+
+let table=document.getElementById("tabelIuran")
+
+let wb=XLSX.utils.table_to_book(table)
+
+XLSX.writeFile(wb,"laporan-kas.xlsx")
+
+}
