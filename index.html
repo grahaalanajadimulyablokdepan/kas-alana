@@ -240,7 +240,36 @@ data-bs-target="#modalKeluar">
 </div>
 
 </div>
+<!-- PROGRESS PEMBAYARAN -->
 
+<div class="card shadow mt-4 p-4">
+
+<h6>Progress Pembayaran Iuran</h6>
+
+<div class="progress">
+
+<div id="progressBayar"
+class="progress-bar bg-success"
+style="width:0%">
+
+0%
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- GRAFIK KAS -->
+
+<div class="card shadow mt-4 p-4">
+
+<h6>Grafik Kas Lingkungan</h6>
+
+<canvas id="chartKas" height="120"></canvas>
+
+</div>
 
 <!-- MODAL TOTAL KAS -->
 
@@ -369,6 +398,33 @@ Chat WhatsApp
 <script src="app.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
 
+const ctx=document.getElementById("chartKas");
+
+if(ctx){
+
+new Chart(ctx,{
+type:'bar',
+data:{
+labels:["Iuran","Pengeluaran","Kas"],
+datasets:[{
+label:"Keuangan",
+data:[0,0,0],
+backgroundColor:[
+"#16a34a",
+"#dc2626",
+"#2563eb"
+]
+}]
+},
+options:{
+responsive:true
+}
+});
+
+}
+
+</script>
 </body>
 </html>
