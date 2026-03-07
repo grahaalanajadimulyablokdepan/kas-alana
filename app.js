@@ -112,9 +112,6 @@ document.getElementById("tabelIuran").innerHTML=html
 
 }
 
-loadIuran()
-
-
 
 /* DASHBOARD */
 
