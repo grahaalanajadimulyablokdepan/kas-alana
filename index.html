@@ -198,7 +198,15 @@ Logout
 
 </select>
 
-<input id="tahun" class="form-control mb-2" readonly>
+<!-- TAHUN BISA PILIH -->
+
+<select id="tahun" class="form-control mb-2">
+
+<option>2025</option>
+<option selected>2026</option>
+<option>2027</option>
+
+</select>
 
 <input id="jumlah" class="form-control mb-3" placeholder="Jumlah iuran">
 
@@ -232,7 +240,7 @@ Simpan
 
 </div>
 
-<!-- CEK IURAN POPUP -->
+<!-- CEK IURAN -->
 
 <div class="card shadow mt-4 p-4">
 
@@ -246,7 +254,7 @@ Pilih Rumah
 
 </div>
 
-<!-- MODAL -->
+<!-- POPUP PILIH RUMAH -->
 
 <div class="modal fade" id="cekModal">
 
@@ -316,14 +324,12 @@ Download Laporan
 <thead>
 
 <tr>
-
 <th>Nama</th>
 <th>Blok</th>
 <th>Rumah</th>
 <th>Bulan</th>
 <th>Tahun</th>
 <th>Jumlah</th>
-
 </tr>
 
 </thead>
@@ -350,8 +356,6 @@ Kas Blok Depan Graha Alana • Sistem Kas Digital
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-
-document.getElementById("tahun").value = new Date().getFullYear()
 
 function loginAdmin(){
 
