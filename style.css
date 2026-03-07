@@ -109,3 +109,11 @@ grid-template-columns:repeat(3,1fr);
 }
 
 }
+.dashboard-card{
+cursor:pointer;
+transition:0.2s;
+}
+
+.dashboard-card:hover{
+transform:scale(1.03);
+}
