@@ -21,7 +21,7 @@
 
 </head>
 
-<body>
+<body id="beranda">
 
 <!-- NAVBAR -->
 
@@ -55,7 +55,8 @@ Blok A1 • A2 • A3 • B1 • B2 • B3
 
 </nav>
 
-<!-- MENU -->
+
+<!-- SIDEMENU -->
 
 <div class="offcanvas offcanvas-start" id="menu">
 
@@ -71,11 +72,25 @@ Blok A1 • A2 • A3 • B1 • B2 • B3
 
 <ul class="list-group">
 
-<li class="list-group-item">Beranda</li>
-<li class="list-group-item">Kata Sambutan</li>
-<li class="list-group-item">Struktur Pengurus</li>
-<li class="list-group-item">Dashboard Kas</li>
-<li class="list-group-item">Riwayat Iuran</li>
+<li class="list-group-item">
+<a href="#beranda" data-bs-dismiss="offcanvas">Beranda</a>
+</li>
+
+<li class="list-group-item">
+<a href="#sambutan" data-bs-dismiss="offcanvas">Kata Sambutan</a>
+</li>
+
+<li class="list-group-item">
+<a href="#pengurus" data-bs-dismiss="offcanvas">Struktur Pengurus</a>
+</li>
+
+<li class="list-group-item">
+<a href="#dashboard" data-bs-dismiss="offcanvas">Dashboard Kas</a>
+</li>
+
+<li class="list-group-item">
+<a href="#riwayat" data-bs-dismiss="offcanvas">Riwayat Iuran</a>
+</li>
 
 </ul>
 
@@ -83,7 +98,9 @@ Blok A1 • A2 • A3 • B1 • B2 • B3
 
 </div>
 
+
 <div class="container mt-4">
+
 
 <!-- LOGIN -->
 
@@ -97,9 +114,51 @@ Blok A1 • A2 • A3 • B1 • B2 • B3
 
 </div>
 
+
+
+<!-- SAMBUTAN -->
+
+<div id="sambutan" class="card shadow mt-4 p-4">
+
+<h5>Kata Sambutan</h5>
+
+<p>
+
+Selamat datang di sistem kas digital Graha Alana.
+Website ini dibuat untuk mempermudah transparansi pengelolaan kas warga
+dan memudahkan warga dalam memantau pembayaran iuran.
+
+</p>
+
+</div>
+
+
+<!-- STRUKTUR -->
+
+<div id="pengurus" class="card shadow mt-4 p-4">
+
+<h5>Struktur Pengurus</h5>
+
+<ul>
+
+<li>Ketua</li>
+<li>Sekretaris</li>
+<li>Bendahara</li>
+<li>Koordinator Lapangan</li>
+<li>Pengurus Blok</li>
+
+</ul>
+
+</div>
+
+
+
 <!-- DASHBOARD -->
 
-<div class="row g-3">
+<div id="dashboard">
+
+
+<div class="row g-3 mt-2">
 
 <div class="col-md-4">
 
@@ -139,6 +198,8 @@ Blok A1 • A2 • A3 • B1 • B2 • B3
 
 </div>
 
+
+
 <!-- GRAFIK -->
 
 <div class="card shadow mt-4 p-4">
@@ -148,6 +209,8 @@ Blok A1 • A2 • A3 • B1 • B2 • B3
 <canvas id="chart"></canvas>
 
 </div>
+
+
 
 <!-- PETA RUMAH -->
 
@@ -159,7 +222,12 @@ Blok A1 • A2 • A3 • B1 • B2 • B3
 
 </div>
 
-<!-- CEK WARGA -->
+
+</div>
+
+
+
+<!-- CEK IURAN -->
 
 <div class="card shadow mt-4 p-4">
 
@@ -174,6 +242,8 @@ Pilih Rumah
 <div id="hasil" class="mt-3"></div>
 
 </div>
+
+
 
 <!-- MODAL -->
 
@@ -220,9 +290,11 @@ Pilih Rumah
 
 </div>
 
+
+
 <!-- RIWAYAT -->
 
-<div class="card shadow mt-4 p-4">
+<div id="riwayat" class="card shadow mt-4 p-4">
 
 <h5>Riwayat Iuran</h5>
 
@@ -255,6 +327,8 @@ Export Excel
 
 </div>
 
+
+
 <div class="footer">
 
 Kas Graha Alana • Sistem Kas Digital
@@ -262,6 +336,7 @@ Kas Graha Alana • Sistem Kas Digital
 </div>
 
 </div>
+
 
 <script src="firebase.js"></script>
 <script src="app.js"></script>
