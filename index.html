@@ -21,15 +21,12 @@
 
 <body>
 
+
+<!-- NAVBAR -->
+
 <nav class="navbar navbar-dark bg-dark">
 
 <div class="container">
-
-<button class="btn btn-outline-light me-3" data-bs-toggle="offcanvas" data-bs-target="#menu">
-
-☰
-
-</button>
 
 <div class="d-flex align-items-center">
 
@@ -40,21 +37,32 @@
 Kas Graha Alana
 
 <div class="header-sub">
-
 Blok A1 • A2 • A3 • B1 • B2 • B3
-
 </div>
 
 </div>
 
 </div>
+
+<!-- HAMBURGER DI KANAN -->
+
+<button class="btn btn-outline-light ms-auto"
+data-bs-toggle="offcanvas"
+data-bs-target="#menu">
+
+☰
+
+</button>
 
 </div>
 
 </nav>
 
 
-<div class="offcanvas offcanvas-start" id="menu">
+
+<!-- SIDE MENU -->
+
+<div class="offcanvas offcanvas-end" id="menu">
 
 <div class="offcanvas-header">
 
@@ -66,19 +74,27 @@ Blok A1 • A2 • A3 • B1 • B2 • B3
 
 <div class="offcanvas-body">
 
-<button class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#modalTentang">
+<div class="list-group">
+
+<button class="list-group-item list-group-item-action"
+data-bs-toggle="modal"
+data-bs-target="#modalTentang">
 
 Tentang Perumahan
 
 </button>
 
-<button class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#modalPengumuman">
+<button class="list-group-item list-group-item-action"
+data-bs-toggle="modal"
+data-bs-target="#modalPengumuman">
 
 Pengumuman
 
 </button>
 
-<button class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#modalKontak">
+<button class="list-group-item list-group-item-action"
+data-bs-toggle="modal"
+data-bs-target="#modalKontak">
 
 Kontak Pengurus
 
@@ -88,8 +104,14 @@ Kontak Pengurus
 
 </div>
 
+</div>
+
+
 
 <div class="container mt-4">
+
+
+<!-- LOGIN -->
 
 <div id="loginBox" class="card p-4 shadow mb-4">
 
@@ -97,10 +119,15 @@ Kontak Pengurus
 
 <input id="adminPass" type="password" class="form-control mb-3" placeholder="Password">
 
-<button class="btn btn-primary w-100" onclick="loginAdmin()">Login</button>
+<button class="btn btn-primary w-100" onclick="loginAdmin()">
+Login
+</button>
 
 </div>
 
+
+
+<!-- ADMIN PANEL -->
 
 <div id="adminPanel" style="display:none">
 
@@ -115,25 +142,26 @@ Kontak Pengurus
 <input id="nama" class="form-control mb-2" placeholder="Nama">
 
 <select id="blok" class="form-control mb-2">
-
 <option>A1</option>
 <option>A2</option>
 <option>A3</option>
 <option>B1</option>
 <option>B2</option>
 <option>B3</option>
-
 </select>
 
 <input id="rumah" class="form-control mb-2" placeholder="No Rumah">
 
 <input id="jumlah" class="form-control mb-2" placeholder="Jumlah">
 
-<button class="btn btn-success w-100" onclick="tambahIuran()">Simpan</button>
+<button class="btn btn-success w-100" onclick="tambahIuran()">
+Simpan
+</button>
 
 </div>
 
 </div>
+
 
 
 <div class="col-md-6">
@@ -146,7 +174,9 @@ Kontak Pengurus
 
 <input id="jumlahKeluar" class="form-control mb-2" placeholder="Jumlah">
 
-<button class="btn btn-danger w-100" onclick="tambahPengeluaran()">Simpan</button>
+<button class="btn btn-danger w-100" onclick="tambahPengeluaran()">
+Simpan
+</button>
 
 </div>
 
@@ -156,17 +186,24 @@ Kontak Pengurus
 
 </div>
 
+
+
+<!-- DASHBOARD -->
 
 <div class="row mt-4 g-3">
 
 <div class="col-md-4">
 
-<div class="dashboard-card kas" onclick="showKas()">
+<div class="dashboard-card kas"
+data-bs-toggle="modal"
+data-bs-target="#modalKas">
 
 <h6>Total Kas</h6>
 
 <h2 id="totalKas">Rp0</h2>
 
+<small>Klik untuk detail</small>
+
 </div>
 
 </div>
@@ -174,12 +211,16 @@ Kontak Pengurus
 
 <div class="col-md-4">
 
-<div class="dashboard-card iuran">
+<div class="dashboard-card iuran"
+data-bs-toggle="modal"
+data-bs-target="#modalIuran">
 
 <h6>Iuran Masuk</h6>
 
 <h2 id="totalIuran">Rp0</h2>
 
+<small>Klik untuk detail</small>
+
 </div>
 
 </div>
@@ -187,18 +228,25 @@ Kontak Pengurus
 
 <div class="col-md-4">
 
-<div class="dashboard-card keluar">
+<div class="dashboard-card keluar"
+data-bs-toggle="modal"
+data-bs-target="#modalKeluar">
 
 <h6>Pengeluaran</h6>
 
 <h2 id="totalKeluar">Rp0</h2>
 
-</div>
+<small>Klik untuk detail</small>
 
 </div>
 
 </div>
 
+</div>
+
+
+
+<!-- PETA -->
 
 <div class="card shadow mt-4 p-4">
 
@@ -208,6 +256,9 @@ Kontak Pengurus
 
 </div>
 
+
+
+<!-- RIWAYAT -->
 
 <div class="card shadow mt-4 p-4">
 
@@ -241,6 +292,189 @@ Download Excel
 </div>
 
 </div>
+
+
+
+<!-- MODAL TOTAL KAS -->
+
+<div class="modal fade" id="modalKas">
+
+<div class="modal-dialog">
+
+<div class="modal-content">
+
+<div class="modal-header">
+
+<h5>Total Kas</h5>
+
+<button class="btn-close" data-bs-dismiss="modal"></button>
+
+</div>
+
+<div class="modal-body">
+
+Total uang kas warga yang terkumpul setelah dikurangi pengeluaran.
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- MODAL IURAN -->
+
+<div class="modal fade" id="modalIuran">
+
+<div class="modal-dialog">
+
+<div class="modal-content">
+
+<div class="modal-header">
+
+<h5>Iuran Masuk</h5>
+
+<button class="btn-close" data-bs-dismiss="modal"></button>
+
+</div>
+
+<div class="modal-body">
+
+Total seluruh iuran warga yang sudah dibayarkan.
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- MODAL PENGELUARAN -->
+
+<div class="modal fade" id="modalKeluar">
+
+<div class="modal-dialog">
+
+<div class="modal-content">
+
+<div class="modal-header">
+
+<h5>Pengeluaran</h5>
+
+<button class="btn-close" data-bs-dismiss="modal"></button>
+
+</div>
+
+<div class="modal-body">
+
+Total dana kas yang sudah digunakan untuk kegiatan lingkungan.
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- MODAL TENTANG -->
+
+<div class="modal fade" id="modalTentang">
+
+<div class="modal-dialog">
+
+<div class="modal-content">
+
+<div class="modal-header">
+
+<h5>Tentang Perumahan</h5>
+
+<button class="btn-close" data-bs-dismiss="modal"></button>
+
+</div>
+
+<div class="modal-body">
+
+Perumahan Graha Alana merupakan lingkungan hunian yang tertata rapi dan nyaman.
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- MODAL PENGUMUMAN -->
+
+<div class="modal fade" id="modalPengumuman">
+
+<div class="modal-dialog">
+
+<div class="modal-content">
+
+<div class="modal-header">
+
+<h5>Pengumuman</h5>
+
+<button class="btn-close" data-bs-dismiss="modal"></button>
+
+</div>
+
+<div class="modal-body">
+
+Belum ada pengumuman terbaru.
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- MODAL KONTAK -->
+
+<div class="modal fade" id="modalKontak">
+
+<div class="modal-dialog">
+
+<div class="modal-content">
+
+<div class="modal-header">
+
+<h5>Kontak Pengurus</h5>
+
+<button class="btn-close" data-bs-dismiss="modal"></button>
+
+</div>
+
+<div class="modal-body">
+
+Ketua  
+Sekretaris  
+Bendahara  
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 
 
 <script src="firebase.js"></script>
