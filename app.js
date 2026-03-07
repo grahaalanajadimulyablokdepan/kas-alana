@@ -253,3 +253,25 @@ el.classList.add("lunas")
 generateMap()
 
 loadData()
+let totalRumah=0
+
+for(let b in blokData){
+
+totalRumah+=blokData[b]
+
+}
+
+let sudahBayar=rumahBayar.length
+
+let belumBayar=totalRumah-sudahBayar
+
+document.getElementById("totalRumah").innerText=totalRumah
+document.getElementById("rumahBayar").innerText=sudahBayar
+document.getElementById("rumahBelum").innerText=belumBayar
+
+let persen=Math.round((sudahBayar/totalRumah)*100)
+
+let bar=document.getElementById("progressBayar")
+
+bar.style.width=persen+"%"
+bar.innerText=persen+"%"
