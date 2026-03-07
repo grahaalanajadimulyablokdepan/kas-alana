@@ -21,7 +21,6 @@
 
 <body>
 
-
 <!-- NAVBAR -->
 
 <nav class="navbar navbar-dark bg-dark">
@@ -57,7 +56,6 @@ data-bs-target="#menu">
 </nav>
 
 
-
 <!-- SIDE MENU -->
 
 <div class="offcanvas offcanvas-end" id="menu">
@@ -74,60 +72,32 @@ data-bs-target="#menu">
 
 <div class="d-grid gap-3">
 
-<button class="btn btn-primary"
-data-bs-toggle="modal"
-data-bs-target="#modalTentang">
-
+<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTentang">
 🏡 Tentang Perumahan
-
 </button>
 
-<button class="btn btn-success"
-data-bs-toggle="modal"
-data-bs-target="#modalVisi">
-
+<button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalVisi">
 🌿 Visi & Misi Lingkungan
-
 </button>
 
-<button class="btn btn-info text-white"
-data-bs-toggle="modal"
-data-bs-target="#modalFasilitas">
-
+<button class="btn btn-info text-white" data-bs-toggle="modal" data-bs-target="#modalFasilitas">
 🏞 Fasilitas Lingkungan
-
 </button>
 
-<button class="btn btn-warning"
-data-bs-toggle="modal"
-data-bs-target="#modalKeamanan">
-
+<button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalKeamanan">
 🔐 Sistem Keamanan
-
 </button>
 
-<button class="btn btn-secondary"
-data-bs-toggle="modal"
-data-bs-target="#modalPeraturan">
-
+<button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modalPeraturan">
 📜 Peraturan Warga
-
 </button>
 
-<button class="btn btn-dark"
-data-bs-toggle="modal"
-data-bs-target="#modalPengumuman">
-
+<button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalPengumuman">
 📢 Pengumuman
-
 </button>
 
-<button class="btn btn-danger"
-data-bs-toggle="modal"
-data-bs-target="#modalKontak">
-
+<button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalKontak">
 ☎ Kontak Pengurus
-
 </button>
 
 </div>
@@ -139,7 +109,6 @@ data-bs-target="#modalKontak">
 
 
 <div class="container mt-4">
-
 
 <!-- LOGIN -->
 
@@ -154,7 +123,6 @@ Login
 </button>
 
 </div>
-
 
 
 <!-- ADMIN PANEL -->
@@ -172,23 +140,19 @@ Login
 <input id="nama" class="form-control mb-2" placeholder="Nama">
 
 <select id="blok" class="form-control mb-2">
-
 <option>A1</option>
 <option>A2</option>
 <option>A3</option>
 <option>B1</option>
 <option>B2</option>
 <option>B3</option>
-
 </select>
 
 <input id="rumah" class="form-control mb-2" placeholder="No Rumah">
 
 <input id="jumlah" class="form-control mb-2" placeholder="Jumlah">
 
-<button class="btn btn-success w-100" onclick="tambahIuran()">
-Simpan
-</button>
+<button class="btn btn-success w-100" onclick="tambahIuran()">Simpan</button>
 
 </div>
 
@@ -205,9 +169,7 @@ Simpan
 
 <input id="jumlahKeluar" class="form-control mb-2" placeholder="Jumlah">
 
-<button class="btn btn-danger w-100" onclick="tambahPengeluaran()">
-Simpan
-</button>
+<button class="btn btn-danger w-100" onclick="tambahPengeluaran()">Simpan</button>
 
 </div>
 
@@ -224,47 +186,27 @@ Simpan
 <div class="row mt-4 g-3">
 
 <div class="col-md-4">
-
 <div class="dashboard-card kas" data-bs-toggle="modal" data-bs-target="#modalKas">
-
 <h6>Total Kas</h6>
-
 <h2 id="totalKas">Rp0</h2>
-
 <small>klik untuk melihat rincian kas</small>
-
 </div>
-
 </div>
-
 
 <div class="col-md-4">
-
 <div class="dashboard-card iuran" data-bs-toggle="modal" data-bs-target="#modalIuran">
-
 <h6>Iuran Masuk</h6>
-
 <h2 id="totalIuran">Rp0</h2>
-
 <small>klik untuk melihat detail iuran</small>
-
 </div>
-
 </div>
-
 
 <div class="col-md-4">
-
 <div class="dashboard-card keluar" data-bs-toggle="modal" data-bs-target="#modalKeluar">
-
 <h6>Pengeluaran</h6>
-
 <h2 id="totalKeluar">Rp0</h2>
-
 <small>klik untuk melihat detail pengeluaran</small>
-
 </div>
-
 </div>
 
 </div>
@@ -380,11 +322,12 @@ Belum ada pengumuman terbaru.
 </div>
 
 
-<!-- KONTAK PENGURUS -->
+
+<!-- KONTAK PENGURUS PROFESIONAL -->
 
 <div class="modal fade" id="modalKontak">
 
-<div class="modal-dialog">
+<div class="modal-dialog modal-dialog-centered">
 
 <div class="modal-content">
 
@@ -396,28 +339,44 @@ Belum ada pengumuman terbaru.
 
 </div>
 
-<div class="modal-body text-center">
+<div class="modal-body">
 
-<h5>Ketua</h5>
+<div class="card text-center shadow">
 
-<b>Caridi</b>
+<div class="card-body">
 
-<br><br>
+<img src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+style="width:90px;border-radius:50%;margin-bottom:10px;">
 
-Nomor WhatsApp
+<h4>Caridi</h4>
 
-<br>
+<p class="text-muted">
+Ketua Pengurus Blok A & B
+</p>
 
-<b>0896-9984-6687</b>
+<hr>
 
-<br><br>
+<h5>📱 0896-9984-6687</h5>
+
+<div class="d-grid gap-2 mt-3">
 
 <a href="https://wa.me/6289699846687"
-class="btn btn-success w-100">
+class="btn btn-success">
 
-📱 Chat WhatsApp
+💬 Chat WhatsApp
 
 </a>
+
+<a href="tel:089699846687"
+class="btn btn-primary">
+
+📞 Telepon Langsung
+
+</a>
+
+</div>
+
+</div>
 
 </div>
 
