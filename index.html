@@ -10,60 +10,14 @@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
+<link rel="stylesheet" href="style.css">
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
 
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-
-<style>
-
-body{
-background:#f4f6fb;
-font-family:system-ui;
-}
-
-/* HEADER */
-
-.navbar{
-background:linear-gradient(90deg,#0f172a,#1e293b);
-}
-
-.logo{
-height:40px;
-margin-right:10px;
-}
-
-.brand-text{
-color:white;
-font-weight:600;
-}
-
-.header-sub{
-font-size:12px;
-color:#cbd5e1;
-}
-
-/* CARD */
-
-.card{
-border:none;
-border-radius:15px;
-}
-
-.dashboard-card h2{
-font-weight:bold;
-}
-
-/* FOOTER */
-
-.footer{
-text-align:center;
-padding:20px;
-color:#777;
-font-size:13px;
-}
-
-</style>
 
 </head>
 
@@ -84,7 +38,9 @@ font-size:13px;
 Kas Graha Alana
 
 <div class="header-sub">
+
 Blok A1 • A2 • A3 • B1 • B2 • B3
+
 </div>
 
 </div>
@@ -99,8 +55,7 @@ Blok A1 • A2 • A3 • B1 • B2 • B3
 
 </nav>
 
-
-<!-- MENU HAMBURGER -->
+<!-- MENU -->
 
 <div class="offcanvas offcanvas-start" id="menu">
 
@@ -119,7 +74,8 @@ Blok A1 • A2 • A3 • B1 • B2 • B3
 <li class="list-group-item">Beranda</li>
 <li class="list-group-item">Kata Sambutan</li>
 <li class="list-group-item">Struktur Pengurus</li>
-<li class="list-group-item">Laporan Kas</li>
+<li class="list-group-item">Dashboard Kas</li>
+<li class="list-group-item">Riwayat Iuran</li>
 
 </ul>
 
@@ -127,174 +83,99 @@ Blok A1 • A2 • A3 • B1 • B2 • B3
 
 </div>
 
-
 <div class="container mt-4">
 
 <!-- LOGIN -->
 
-<div id="loginBox" class="card shadow p-4 mb-4">
+<div id="loginBox" class="card p-4 mb-4 shadow">
 
 <h5>Login Pengurus</h5>
 
-<input id="adminPass" class="form-control mb-3" type="password" placeholder="Password">
+<input id="adminPass" type="password" class="form-control mb-3" placeholder="Password">
 
-<button class="btn btn-primary w-100" onclick="loginAdmin()">
-Login
-</button>
+<button class="btn btn-primary w-100" onclick="loginAdmin()">Login</button>
 
 </div>
-
 
 <!-- DASHBOARD -->
 
 <div class="row g-3">
 
 <div class="col-md-4">
-<div class="card dashboard-card shadow text-center p-3">
+
+<div class="card text-center shadow p-3">
+
 <h6>Total Kas</h6>
+
 <h2 id="totalKas">Rp0</h2>
+
 </div>
+
 </div>
 
 <div class="col-md-4">
-<div class="card dashboard-card shadow text-center p-3">
+
+<div class="card text-center shadow p-3">
+
 <h6>Iuran Masuk</h6>
+
 <h2 id="totalIuran">Rp0</h2>
+
 </div>
+
 </div>
 
 <div class="col-md-4">
-<div class="card dashboard-card shadow text-center p-3">
+
+<div class="card text-center shadow p-3">
+
 <h6>Pengeluaran</h6>
+
 <h2 id="totalKeluar">Rp0</h2>
-</div>
-</div>
 
 </div>
 
+</div>
+
+</div>
 
 <!-- GRAFIK -->
 
 <div class="card shadow mt-4 p-4">
 
-<h5>Grafik Kas</h5>
+<h5>Grafik Kas Bulanan</h5>
 
 <canvas id="chart"></canvas>
 
 </div>
 
+<!-- STATUS RUMAH -->
 
-<!-- PANEL ADMIN -->
+<div class="card shadow mt-4 p-4">
 
-<div id="adminPanel" style="display:none">
+<h5>Status Pembayaran Rumah</h5>
 
-<div class="d-flex justify-content-between mt-4">
-
-<h5>Panel Pengurus</h5>
-
-<button class="btn btn-outline-danger btn-sm" onclick="logoutAdmin()">
-Logout
-</button>
+<div id="statusRumah"></div>
 
 </div>
 
-
-<div class="row mt-3 g-3">
-
-<!-- INPUT IURAN -->
-
-<div class="col-md-6">
-
-<div class="card shadow p-4">
-
-<h5>Input Iuran</h5>
-
-<input id="nama" class="form-control mb-2" placeholder="Nama warga">
-
-<select id="blok" class="form-control mb-2">
-
-<option>A1</option>
-<option>A2</option>
-<option>A3</option>
-<option>B1</option>
-<option>B2</option>
-<option>B3</option>
-
-</select>
-
-<select id="rumah" class="form-control mb-2"></select>
-
-<select id="bulan" class="form-control mb-2">
-
-<option>Januari</option>
-<option>Februari</option>
-<option>Maret</option>
-<option>April</option>
-<option>Mei</option>
-<option>Juni</option>
-<option>Juli</option>
-<option>Agustus</option>
-<option>September</option>
-<option>Oktober</option>
-<option>November</option>
-<option>Desember</option>
-
-</select>
-
-<select id="tahun" class="form-control mb-2"></select>
-
-<input id="jumlah" class="form-control mb-3" placeholder="Jumlah iuran">
-
-<button class="btn btn-success w-100" onclick="tambahIuran()">
-Simpan Iuran
-</button>
-
-</div>
-
-</div>
-
-
-<!-- INPUT PENGELUARAN -->
-
-<div class="col-md-6">
-
-<div class="card shadow p-4">
-
-<h5>Input Pengeluaran</h5>
-
-<input id="ket" class="form-control mb-2" placeholder="Keterangan">
-
-<input id="jumlahKeluar" class="form-control mb-3" placeholder="Jumlah pengeluaran">
-
-<button class="btn btn-danger w-100" onclick="tambahPengeluaran()">
-Simpan
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- CEK IURAN -->
+<!-- CEK WARGA -->
 
 <div class="card shadow mt-4 p-4">
 
 <h5>Cek Iuran Rumah</h5>
 
 <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#cekModal">
+
 Pilih Rumah
+
 </button>
 
 <div id="hasil" class="mt-3"></div>
 
 </div>
 
-
-<!-- MODAL CEK -->
+<!-- MODAL -->
 
 <div class="modal fade" id="cekModal">
 
@@ -312,9 +193,7 @@ Pilih Rumah
 
 <div class="modal-body">
 
-<label>Blok</label>
-
-<select id="cekBlok" class="form-control mb-3">
+<select id="cekBlok" class="form-control mb-2">
 
 <option>A1</option>
 <option>A2</option>
@@ -325,17 +204,13 @@ Pilih Rumah
 
 </select>
 
-<label>Nomor Rumah</label>
-
 <select id="cekNomor" class="form-control"></select>
 
 </div>
 
 <div class="modal-footer">
 
-<button class="btn btn-primary" onclick="cekRumah()">
-Cek
-</button>
+<button class="btn btn-primary" onclick="cekRumah()">Cek</button>
 
 </div>
 
@@ -344,7 +219,6 @@ Cek
 </div>
 
 </div>
-
 
 <!-- RIWAYAT -->
 
@@ -352,23 +226,25 @@ Cek
 
 <h5>Riwayat Iuran</h5>
 
-<button class="btn btn-success mb-3" onclick="exportKas()">
-Download Laporan
-</button>
+<button class="btn btn-success mb-3" onclick="exportExcel()">
 
-<div class="table-responsive">
+Export Excel
+
+</button>
 
 <table class="table table-striped">
 
 <thead>
 
 <tr>
+
 <th>Nama</th>
 <th>Blok</th>
 <th>Rumah</th>
 <th>Bulan</th>
 <th>Tahun</th>
 <th>Jumlah</th>
+
 </tr>
 
 </thead>
@@ -379,9 +255,6 @@ Download Laporan
 
 </div>
 
-</div>
-
-
 <div class="footer">
 
 Kas Graha Alana • Sistem Kas Digital
@@ -390,99 +263,10 @@ Kas Graha Alana • Sistem Kas Digital
 
 </div>
 
-
 <script src="firebase.js"></script>
 <script src="app.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-
-<script>
-
-/* PASSWORD 6 PENGURUS */
-
-const passwords=[
-"ketua123",
-"sekretaris123",
-"bendahara123",
-"korlap123",
-"pengurus1",
-"pengurus2"
-]
-
-function loginAdmin(){
-
-let pass=document.getElementById("adminPass").value
-
-if(passwords.includes(pass)){
-
-document.getElementById("adminPanel").style.display="block"
-document.getElementById("loginBox").style.display="none"
-
-}else{
-
-alert("Password salah")
-
-}
-
-}
-
-function logoutAdmin(){
-
-document.getElementById("adminPanel").style.display="none"
-document.getElementById("loginBox").style.display="block"
-
-}
-
-
-/* NOMOR RUMAH */
-
-for(let i=1;i<=25;i++){
-
-let opt=document.createElement("option")
-
-opt.value=i
-opt.text=i
-
-document.getElementById("rumah").appendChild(opt)
-document.getElementById("cekNomor").appendChild(opt.cloneNode(true))
-
-}
-
-
-/* TAHUN OTOMATIS */
-
-for(let y=2024;y<=2035;y++){
-
-let opt=document.createElement("option")
-
-opt.value=y
-opt.text=y
-
-document.getElementById("tahun").appendChild(opt)
-
-}
-
-
-function cekRumah(){
-
-let blok=document.getElementById("cekBlok").value
-let rumah=document.getElementById("cekNomor").value
-
-let kode=blok+"-"+rumah
-
-document.getElementById("hasil").innerHTML="Data iuran untuk rumah <b>"+kode+"</b>"
-
-}
-
-
-function exportKas(){
-
-alert("Fitur export Excel akan dibuat")
-
-}
-
-</script>
 
 </body>
 </html>
