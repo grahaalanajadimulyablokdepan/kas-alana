@@ -295,3 +295,38 @@ function bukaModal(id){
 let modal = new bootstrap.Modal(document.getElementById(id))
 modal.show()
 }
+
+function kirimKomplain(){
+
+let nama=document.getElementById("komplainNama").value
+let blok=document.getElementById("komplainBlok").value
+let rumah=document.getElementById("komplainRumah").value
+let hp=document.getElementById("komplainHP").value
+let isi=document.getElementById("komplainIsi").value
+
+if(nama=="" || isi==""){
+alert("Isi nama dan masukan terlebih dahulu")
+return
+}
+
+db.collection("komplain").add({
+
+nama:nama,
+blok:blok,
+rumah:rumah,
+hp:hp,
+isi:isi,
+tanggal:new Date()
+
+}).then(()=>{
+
+alert("Masukan berhasil dikirim")
+
+document.getElementById("komplainNama").value=""
+document.getElementById("komplainRumah").value=""
+document.getElementById("komplainHP").value=""
+document.getElementById("komplainIsi").value=""
+
+})
+
+}
