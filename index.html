@@ -662,8 +662,17 @@ responsive:true
 
   <script>
 function bukaModal(id){
+
+let menu = document.getElementById("menu");
+let offcanvas = bootstrap.Offcanvas.getInstance(menu);
+
+if(offcanvas){
+offcanvas.hide();
+}
+
 let modal = new bootstrap.Modal(document.getElementById(id));
 modal.show();
+
 }
 </script>
 </body>
