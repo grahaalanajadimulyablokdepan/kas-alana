@@ -126,7 +126,14 @@ let kas=totalIuran-totalKeluar
 let kasEl=document.getElementById("totalKas")
 if(kasEl) kasEl.innerText=rupiah(kas)
 
+let detailIuran=document.getElementById("detailIuran")
+if(detailIuran) detailIuran.innerText=rupiah(totalIuran)
 
+let detailKeluar=document.getElementById("detailKeluar")
+if(detailKeluar) detailKeluar.innerText=rupiah(totalKeluar)
+
+let detailKas=document.getElementById("detailKas")
+if(detailKas) detailKas.innerText=rupiah(kas)
 
 updateMap(rumahBayar)
 
