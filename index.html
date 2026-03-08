@@ -21,10 +21,10 @@
 
 <body>
 
+
 <!-- NAVBAR -->
 
 <nav class="navbar navbar-dark bg-dark">
-
 <div class="container">
 
 <div class="d-flex align-items-center">
@@ -40,7 +40,6 @@ Blok A1 • A2 • A3 • B1 • B2 • B3
 </div>
 
 </div>
-
 </div>
 
 <button class="btn btn-outline-light ms-auto"
@@ -52,7 +51,6 @@ data-bs-target="#menu">
 </button>
 
 </div>
-
 </nav>
 
 
@@ -61,69 +59,65 @@ data-bs-target="#menu">
 <div class="offcanvas offcanvas-end" id="menu">
 
 <div class="offcanvas-header">
-
 <h5>Menu Graha Alana</h5>
-
 <button class="btn-close" data-bs-dismiss="offcanvas"></button>
-
 </div>
 
 <div class="offcanvas-body">
 
 <div class="d-grid gap-3">
 
-<button class="menu-btn btn btn-primary w-100 mb-2"
+<button class="btn btn-primary"
 data-bs-dismiss="offcanvas"
 data-bs-toggle="modal"
 data-bs-target="#modalTentang">
 🏠 Tentang Perumahan
 </button>
 
-<button class="menu-btn btn btn-success w-100 mb-2"
+<button class="btn btn-success"
 data-bs-dismiss="offcanvas"
 data-bs-toggle="modal"
 data-bs-target="#modalVisi">
 🌿 Visi & Misi Lingkungan
 </button>
 
-<button class="menu-btn btn btn-info w-100 mb-2"
+<button class="btn btn-info"
 data-bs-dismiss="offcanvas"
 data-bs-toggle="modal"
 data-bs-target="#modalFasilitas">
 🏞️ Fasilitas Lingkungan
 </button>
 
-<button class="menu-btn btn btn-warning w-100 mb-2"
+<button class="btn btn-warning"
 data-bs-dismiss="offcanvas"
 data-bs-toggle="modal"
 data-bs-target="#modalKeamanan">
 🔐 Sistem Keamanan
 </button>
 
-<button class="menu-btn btn btn-secondary w-100 mb-2"
+<button class="btn btn-secondary"
 data-bs-dismiss="offcanvas"
 data-bs-toggle="modal"
 data-bs-target="#modalPeraturan">
 📜 Peraturan Warga
 </button>
 
-<button class="menu-btn btn btn-dark w-100 mb-2"
+<button class="btn btn-dark"
 data-bs-dismiss="offcanvas"
 data-bs-toggle="modal"
 data-bs-target="#modalPengumuman">
 📢 Pengumuman
 </button>
 
-<button class="menu-btn btn btn-danger w-100 mb-2"
+<button class="btn btn-danger"
 data-bs-dismiss="offcanvas"
 data-bs-toggle="modal"
 data-bs-target="#modalKontak">
 ☎️ Kontak Pengurus
 </button>
-</div>
 
 </div>
-
+</div>
 </div>
 
 
@@ -172,7 +166,6 @@ data-bs-target="#modalKontak">
 <button class="btn btn-success w-100" onclick="tambahIuran()">Simpan</button>
 
 </div>
-
 </div>
 
 
@@ -189,11 +182,9 @@ data-bs-target="#modalKontak">
 <button class="btn btn-danger w-100" onclick="tambahPengeluaran()">Simpan</button>
 
 </div>
-
 </div>
 
 </div>
-
 </div>
 
 
@@ -208,11 +199,9 @@ data-bs-toggle="modal"
 data-bs-target="#modalKas">
 
 <h6>Total Kas</h6>
-
 <h2 id="totalKas">Rp0</h2>
 
 </div>
-
 </div>
 
 
@@ -223,11 +212,9 @@ data-bs-toggle="modal"
 data-bs-target="#modalIuran">
 
 <h6>Iuran Masuk</h6>
-
 <h2 id="totalIuran">Rp0</h2>
 
 </div>
-
 </div>
 
 
@@ -238,59 +225,9 @@ data-bs-toggle="modal"
 data-bs-target="#modalKeluar">
 
 <h6>Pengeluaran</h6>
-
 <h2 id="totalKeluar">Rp0</h2>
 
 </div>
-
-</div>
-
-</div>
-
-
-<!-- STATISTIK -->
-
-<div class="row mt-4 g-3">
-
-<div class="col-md-4">
-<div class="card text-center shadow p-3">
-<h6>Total Rumah</h6>
-<h2 id="totalRumah">0</h2>
-</div>
-</div>
-
-<div class="col-md-4">
-<div class="card text-center shadow p-3">
-<h6>Sudah Bayar</h6>
-<h2 id="rumahBayar">0</h2>
-</div>
-</div>
-
-<div class="col-md-4">
-<div class="card text-center shadow p-3">
-<h6>Belum Bayar</h6>
-<h2 id="rumahBelum">0</h2>
-</div>
-</div>
-
-</div>
-
-<!-- PROGRESS -->
-
-<div class="card shadow mt-4 p-4">
-
-<h6>Progress Pembayaran Iuran</h6>
-
-<div class="progress">
-
-<div id="progressBayar"
-class="progress-bar bg-success"
-style="width:0%">
-
-0%
-
-</div>
-
 </div>
 
 </div>
@@ -302,46 +239,27 @@ style="width:0%">
 
 <h6>Grafik Kas Lingkungan</h6>
 
-<canvas id="chartKas" height="120"></canvas>
+<canvas id="chartKas"></canvas>
+
+</div>
 
 </div>
 
 
-<!-- MODAL TOTAL KAS DETAIL -->
+<!-- MODAL TOTAL KAS -->
 
 <div class="modal fade" id="modalKas">
-<div class="modal-dialog modal-lg">
+<div class="modal-dialog">
 <div class="modal-content">
 
 <div class="modal-header">
-<h5>Detail Total Kas</h5>
+<h5>Total Kas</h5>
 <button class="btn-close" data-bs-dismiss="modal"></button>
 </div>
 
 <div class="modal-body">
 
-<div class="row text-center mb-3">
-
-<div class="col">
-<h6>Total Iuran</h6>
-<h4 id="detailIuran">Rp0</h4>
-</div>
-
-<div class="col">
-<h6>Total Pengeluaran</h6>
-<h4 id="detailKeluar">Rp0</h4>
-</div>
-
-<div class="col">
-<h6>Saldo Kas</h6>
-<h4 id="detailKas">Rp0</h4>
-</div>
-
-</div>
-
-<p class="text-muted">
-Saldo kas berasal dari total iuran warga dikurangi seluruh pengeluaran lingkungan.
-</p>
+Saldo kas berasal dari total iuran warga dikurangi pengeluaran.
 
 </div>
 
@@ -350,39 +268,20 @@ Saldo kas berasal dari total iuran warga dikurangi seluruh pengeluaran lingkunga
 </div>
 
 
-<!-- MODAL DETAIL IURAN -->
+<!-- MODAL IURAN -->
 
 <div class="modal fade" id="modalIuran">
-<div class="modal-dialog modal-lg">
+<div class="modal-dialog">
 <div class="modal-content">
 
 <div class="modal-header">
-<h5>Detail Iuran Warga</h5>
+<h5>Iuran Warga</h5>
 <button class="btn-close" data-bs-dismiss="modal"></button>
 </div>
 
 <div class="modal-body">
 
-<table class="table table-striped">
-
-<thead>
-<tr>
-<th>Nama</th>
-<th>Blok</th>
-<th>Rumah</th>
-<th>Nominal</th>
-</tr>
-</thead>
-
-<tbody id="detailTabelIuran">
-
-<tr>
-<td colspan="4" class="text-center">Belum ada data</td>
-</tr>
-
-</tbody>
-
-</table>
+Detail iuran warga.
 
 </div>
 
@@ -391,37 +290,20 @@ Saldo kas berasal dari total iuran warga dikurangi seluruh pengeluaran lingkunga
 </div>
 
 
-<!-- MODAL DETAIL PENGELUARAN -->
+<!-- MODAL PENGELUARAN -->
 
 <div class="modal fade" id="modalKeluar">
-<div class="modal-dialog modal-lg">
+<div class="modal-dialog">
 <div class="modal-content">
 
 <div class="modal-header">
-<h5>Detail Pengeluaran Kas</h5>
+<h5>Pengeluaran Kas</h5>
 <button class="btn-close" data-bs-dismiss="modal"></button>
 </div>
 
 <div class="modal-body">
 
-<table class="table table-striped">
-
-<thead>
-<tr>
-<th>Keterangan</th>
-<th>Nominal</th>
-</tr>
-</thead>
-
-<tbody id="detailTabelKeluar">
-
-<tr>
-<td colspan="2" class="text-center">Belum ada data</td>
-</tr>
-
-</tbody>
-
-</table>
+Detail pengeluaran lingkungan.
 
 </div>
 
@@ -429,7 +311,9 @@ Saldo kas berasal dari total iuran warga dikurangi seluruh pengeluaran lingkunga
 </div>
 </div>
 
-  <!-- MODAL TENTANG -->
+
+<!-- MODAL TENTANG -->
+
 <div class="modal fade" id="modalTentang">
 <div class="modal-dialog">
 <div class="modal-content">
@@ -440,22 +324,22 @@ Saldo kas berasal dari total iuran warga dikurangi seluruh pengeluaran lingkunga
 </div>
 
 <div class="modal-body">
-Graha Alana Jadimulya merupakan lingkungan hunian yang mengutamakan
-kebersamaan warga, keamanan lingkungan, serta pengelolaan kas
-yang transparan dan terbuka untuk seluruh warga.
+Graha Alana Jadimulya merupakan lingkungan hunian yang nyaman dan tertata.
 </div>
 
 </div>
 </div>
 </div>
-  
+
+
 <!-- MODAL VISI -->
-  <div class="modal fade" id="modalVisi">
+
+<div class="modal fade" id="modalVisi">
 <div class="modal-dialog">
 <div class="modal-content">
 
 <div class="modal-header">
-<h5>Visi & Misi Lingkungan</h5>
+<h5>Visi & Misi</h5>
 <button class="btn-close" data-bs-dismiss="modal"></button>
 </div>
 
@@ -463,24 +347,27 @@ yang transparan dan terbuka untuk seluruh warga.
 
 <b>Visi</b>
 <br>
-Mewujudkan lingkungan yang aman, tertib, dan harmonis.
+Lingkungan aman dan harmonis.
 
 <br><br>
 
 <b>Misi</b>
 
 <ul>
-<li>Meningkatkan keamanan lingkungan</li>
-<li>Mengelola kas warga secara transparan</li>
-<li>Menjalin kerukunan antar warga</li>
-<li>Menjaga kebersihan lingkungan</li>
+<li>Menjaga kebersihan</li>
+<li>Keamanan lingkungan</li>
+<li>Kebersamaan warga</li>
 </ul>
 
 </div>
+
+</div>
 </div>
 </div>
 
-    <!-- MODAL FASILITAS -->
+
+<!-- MODAL FASILITAS -->
+
 <div class="modal fade" id="modalFasilitas">
 <div class="modal-dialog">
 <div class="modal-content">
@@ -494,18 +381,20 @@ Mewujudkan lingkungan yang aman, tertib, dan harmonis.
 
 <ul>
 <li>Pos keamanan</li>
-<li>Penerangan jalan</li>
-<li>Area parkir tamu</li>
-<li>Sistem keamanan lingkungan</li>
-<li>Pengelolaan kebersihan</li>
+<li>Lampu jalan</li>
+<li>Area parkir</li>
 </ul>
+
+</div>
 
 </div>
 </div>
 </div>
-  
-  <!-- MODAL KEAMANAN -->
-  <div class="modal fade" id="modalKeamanan">
+
+
+<!-- MODAL KEAMANAN -->
+
+<div class="modal fade" id="modalKeamanan">
 <div class="modal-dialog">
 <div class="modal-content">
 
@@ -516,21 +405,18 @@ Mewujudkan lingkungan yang aman, tertib, dan harmonis.
 
 <div class="modal-body">
 
-Lingkungan Graha Alana memiliki sistem keamanan berupa:
+Ronda malam dan koordinasi warga.
 
-<ul>
-<li>Ronda malam warga</li>
-<li>Koordinasi keamanan RT</li>
-<li>Pemantauan lingkungan</li>
-<li>Sistem pelaporan warga</li>
-</ul>
+</div>
 
 </div>
 </div>
 </div>
-      
-      <!-- MODAL PERATURAN -->
-      <div class="modal fade" id="modalPeraturan">
+
+
+<!-- MODAL PERATURAN -->
+
+<div class="modal fade" id="modalPeraturan">
 <div class="modal-dialog">
 <div class="modal-content">
 
@@ -542,135 +428,86 @@ Lingkungan Graha Alana memiliki sistem keamanan berupa:
 <div class="modal-body">
 
 <ul>
-<li>Menjaga kebersihan lingkungan</li>
-<li>Membayar iuran kas tepat waktu</li>
-<li>Menjaga ketertiban lingkungan</li>
-<li>Saling menghormati antar warga</li>
+<li>Menjaga kebersihan</li>
+<li>Membayar iuran tepat waktu</li>
 </ul>
+
+</div>
 
 </div>
 </div>
 </div>
-      
-<!-- MODAL PENGUMUMAN-->
-      <div class="modal fade" id="modalPengumuman">
+
+
+<!-- MODAL PENGUMUMAN -->
+
+<div class="modal fade" id="modalPengumuman">
 <div class="modal-dialog">
 <div class="modal-content">
 
 <div class="modal-header">
-<h5>Pengumuman Warga</h5>
+<h5>Pengumuman</h5>
 <button class="btn-close" data-bs-dismiss="modal"></button>
 </div>
 
 <div class="modal-body">
+Belum ada pengumuman.
+</div>
 
-Belum ada pengumuman terbaru.
+</div>
+</div>
+</div>
 
-</div>
-</div>
-</div>
-      
-      <!-- MODAL KONTAK -->
-      <div class="modal fade" id="modalKontak">
-<div class="modal-dialog modal-lg">
+
+<!-- MODAL KONTAK -->
+
+<div class="modal fade" id="modalKontak">
+<div class="modal-dialog">
 <div class="modal-content">
 
 <div class="modal-header">
-<h5>Kontak Pengurus Lingkungan</h5>
+<h5>Kontak Pengurus</h5>
 <button class="btn-close" data-bs-dismiss="modal"></button>
 </div>
 
 <div class="modal-body">
 
-<div class="row text-center g-4">
+Ketua : Caridi  
+WA : 0896-9984-6687
 
-<!-- Ketua -->
-<div class="col-6 col-md-3">
-<img src="ketua.jpg" class="rounded-circle mb-2"
-style="width:90px;height:90px;object-fit:cover;">
-<h6>Caridi</h6>
-<small class="text-muted">Ketua</small>
-<br>
-<a href="https://wa.me/6289699846687"
-class="btn btn-success btn-sm mt-2">
-WhatsApp
-</a>
 </div>
-
-<!-- Bendahara -->
-<div class="col-6 col-md-3">
-<img src="bendahara.jpg" class="rounded-circle mb-2"
-style="width:90px;height:90px;object-fit:cover;">
-<h6>Bendahara</h6>
-<small class="text-muted">Kas Lingkungan</small>
-<br>
-<a href="https://wa.me/6281234567890"
-class="btn btn-success btn-sm mt-2">
-WhatsApp
-</a>
-</div>
-
-<!-- Korlap -->
-<div class="col-6 col-md-3">
-<img src="korlap.jpg" class="rounded-circle mb-2"
-style="width:90px;height:90px;object-fit:cover;">
-<h6>Korlap</h6>
-<small class="text-muted">Koordinator Lapangan</small>
-<br>
-<a href="https://wa.me/6281234567890"
-class="btn btn-success btn-sm mt-2">
-WhatsApp
-</a>
-</div>
-
-<!-- Keamanan -->
-<div class="col-6 col-md-3">
-<img src="keamanan.jpg" class="rounded-circle mb-2"
-style="width:90px;height:90px;object-fit:cover;">
-<h6>Keamanan</h6>
-<small class="text-muted">Security</small>
-<br>
-<a href="https://wa.me/6281234567890"
-class="btn btn-success btn-sm mt-2">
-WhatsApp
-</a>
 
 </div>
 </div>
 </div>
-  
+
+
 <script src="firebase.js"></script>
 <script src="app.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
+
 const ctx=document.getElementById("chartKas");
 
 if(ctx){
-window.chartKas=new Chart(ctx,{
+
+new Chart(ctx,{
 type:'bar',
 data:{
 labels:["Iuran","Pengeluaran","Kas"],
 datasets:[{
 label:"Keuangan",
 data:[0,0,0],
-backgroundColor:[
-"#16a34a",
-"#dc2626",
-"#2563eb"
-]
+backgroundColor:["#16a34a","#dc2626","#2563eb"]
 }]
-},
-options:{
-responsive:true
 }
-});
-}
-</script>
+})
 
-  <script>
+}
 
 </script>
+
 </body>
 </html>
