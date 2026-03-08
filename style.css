@@ -75,3 +75,103 @@ background:#dc2626;
 .lunas{
 background:#16a34a;
 }
+
+/* ===== MODAL MODERN UI ===== */
+
+.modal-content{
+border-radius:20px;
+border:none;
+overflow:hidden;
+box-shadow:0 25px 60px rgba(0,0,0,0.25);
+animation:popupFade 0.3s ease;
+}
+
+/* HEADER MODAL */
+
+.modal-header{
+background:linear-gradient(135deg,#2563eb,#1e40af);
+color:white;
+border:none;
+padding:18px 22px;
+}
+
+.modal-header h5{
+font-weight:600;
+font-size:18px;
+}
+
+.btn-close{
+filter:invert(1);
+}
+
+/* BODY MODAL */
+
+.modal-body{
+padding:22px;
+font-size:15px;
+line-height:1.6;
+}
+
+/* FOOTER */
+
+.modal-footer{
+border:none;
+padding:16px;
+}
+
+/* INPUT MODAL */
+
+.modal-body input,
+.modal-body textarea,
+.modal-body select{
+
+border-radius:12px;
+padding:12px;
+border:1px solid #e5e7eb;
+transition:all .2s;
+
+}
+
+.modal-body input:focus,
+.modal-body textarea:focus,
+.modal-body select:focus{
+
+border-color:#2563eb;
+box-shadow:0 0 0 3px rgba(37,99,235,0.2);
+
+}
+
+/* BUTTON MODAL */
+
+.modal-body button{
+
+border-radius:12px;
+padding:12px;
+font-weight:600;
+background:linear-gradient(135deg,#2563eb,#1d4ed8);
+border:none;
+
+}
+
+.modal-body button:hover{
+
+transform:scale(1.03);
+opacity:0.95;
+
+}
+
+/* ANIMASI POPUP */
+
+@keyframes popupFade{
+
+from{
+transform:translateY(30px);
+opacity:0;
+}
+
+to{
+transform:translateY(0);
+opacity:1;
+}
+
+}
