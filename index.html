@@ -73,37 +73,51 @@ data-bs-target="#menu">
 <div class="d-grid gap-3">
 
 <button class="menu-btn btn btn-primary w-100 mb-2"
-onclick="bukaModal('modalTentang')">
-🏡 Tentang Perumahan
+data-bs-dismiss="offcanvas"
+data-bs-toggle="modal"
+data-bs-target="#modalTentang">
+🏠 Tentang Perumahan
 </button>
 
 <button class="menu-btn btn btn-success w-100 mb-2"
-onclick="bukaModal('modalVisi')">
+data-bs-dismiss="offcanvas"
+data-bs-toggle="modal"
+data-bs-target="#modalVisi">
 🌿 Visi & Misi Lingkungan
 </button>
 
 <button class="menu-btn btn btn-info w-100 mb-2"
-onclick="bukaModal('modalFasilitas')">
+data-bs-dismiss="offcanvas"
+data-bs-toggle="modal"
+data-bs-target="#modalFasilitas">
 🏞️ Fasilitas Lingkungan
 </button>
 
 <button class="menu-btn btn btn-warning w-100 mb-2"
-onclick="bukaModal('modalKeamanan')">
+data-bs-dismiss="offcanvas"
+data-bs-toggle="modal"
+data-bs-target="#modalKeamanan">
 🔐 Sistem Keamanan
 </button>
 
 <button class="menu-btn btn btn-secondary w-100 mb-2"
-onclick="bukaModal('modalPeraturan')">
+data-bs-dismiss="offcanvas"
+data-bs-toggle="modal"
+data-bs-target="#modalPeraturan">
 📜 Peraturan Warga
 </button>
 
 <button class="menu-btn btn btn-dark w-100 mb-2"
-onclick="bukaModal('modalPengumuman')">
+data-bs-dismiss="offcanvas"
+data-bs-toggle="modal"
+data-bs-target="#modalPengumuman">
 📢 Pengumuman
 </button>
 
 <button class="menu-btn btn btn-danger w-100 mb-2"
-onclick="bukaModal('modalKontak')">
+data-bs-dismiss="offcanvas"
+data-bs-toggle="modal"
+data-bs-target="#modalKontak">
 ☎️ Kontak Pengurus
 </button>
 </div>
@@ -661,19 +675,7 @@ responsive:true
 </script>
 
   <script>
-function bukaModal(id){
 
-let menu = document.getElementById("menu");
-let offcanvas = bootstrap.Offcanvas.getInstance(menu);
-
-if(offcanvas){
-offcanvas.hide();
-}
-
-let modal = new bootstrap.Modal(document.getElementById(id));
-modal.show();
-
-}
 </script>
 </body>
 </html>
