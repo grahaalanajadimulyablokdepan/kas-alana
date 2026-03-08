@@ -14,10 +14,10 @@ document.getElementById("adminPanel").style.display="block"
 }
 
 function rupiah(n){
-
 return "Rp"+Number(n).toLocaleString("id-ID")
-
 }
+
+
 
 function tambahIuran(){
 
@@ -27,19 +27,17 @@ let rumah=document.getElementById("rumah").value
 let jumlah=document.getElementById("jumlah").value
 
 db.collection("iuran").add({
-
 nama:nama,
 blok:blok,
 rumah:rumah,
 jumlah:Number(jumlah)
-
 }).then(()=>{
-
 loadData()
-
 })
 
 }
+
+
 
 function tambahPengeluaran(){
 
@@ -47,14 +45,10 @@ let ket=document.getElementById("ket").value
 let jumlah=document.getElementById("jumlahKeluar").value
 
 db.collection("pengeluaran").add({
-
 ket:ket,
 jumlah:Number(jumlah)
-
 }).then(()=>{
-
 loadData()
-
 })
 
 }
@@ -65,98 +59,76 @@ function loadData(){
 
 let totalIuran=0
 let totalKeluar=0
-
 let rumahBayar=[]
 
-db.collection("iuran").get().then(s=>{
+
+
+db.collection("iuran").get().then(snapshot=>{
 
 let html=""
 
-s.forEach(doc=>{
+snapshot.forEach(doc=>{
 
 let d=doc.data()
 
-totalIuran+=d.jumlah
+totalIuran+=Number(d.jumlah)
 
 rumahBayar.push(d.blok+"-"+d.rumah)
 
 html+=`
-
 <tr>
-
 <td>${d.nama}</td>
 <td>${d.blok}</td>
 <td>${d.rumah}</td>
 <td>${rupiah(d.jumlah)}</td>
-
 </tr>
-
 `
 
 })
 
-if(document.getElementById("tabelIuran")){
-document.getElementById("tabelIuran").innerHTML=html
-}
 
-document.getElementById("totalIuran").innerText=rupiah(totalIuran)
 
-if(document.getElementById("detailTotalIuran")){
-document.getElementById("detailTotalIuran").innerText=rupiah(totalIuran)
-}
+let tabel=document.getElementById("tabelIuran")
+if(tabel) tabel.innerHTML=html
 
-if(document.getElementById("detailTotalIuran2")){
-document.getElementById("detailTotalIuran2").innerText=rupiah(totalIuran)
-}
+let elTotalIuran=document.getElementById("totalIuran")
+if(elTotalIuran) elTotalIuran.innerText=rupiah(totalIuran)
 
 
 
-db.collection("pengeluaran").get().then(p=>{
+db.collection("pengeluaran").get().then(snapshot2=>{
 
 let htmlKeluar=""
 
-p.forEach(doc=>{
+snapshot2.forEach(doc=>{
 
 let d=doc.data()
 
-totalKeluar+=d.jumlah
+totalKeluar+=Number(d.jumlah)
 
 htmlKeluar+=`
-
 <tr>
-
 <td>${d.ket}</td>
 <td>${rupiah(d.jumlah)}</td>
-
 </tr>
-
 `
 
 })
 
-if(document.getElementById("tabelPengeluaran")){
-document.getElementById("tabelPengeluaran").innerHTML=htmlKeluar
-}
 
-document.getElementById("totalKeluar").innerText=rupiah(totalKeluar)
 
-if(document.getElementById("detailTotalKeluar")){
-document.getElementById("detailTotalKeluar").innerText=rupiah(totalKeluar)
-}
+let tabelKeluar=document.getElementById("tabelPengeluaran")
+if(tabelKeluar) tabelKeluar.innerHTML=htmlKeluar
 
-if(document.getElementById("detailTotalKeluar2")){
-document.getElementById("detailTotalKeluar2").innerText=rupiah(totalKeluar)
-}
+let elKeluar=document.getElementById("totalKeluar")
+if(elKeluar) elKeluar.innerText=rupiah(totalKeluar)
 
 
 
 let kas=totalIuran-totalKeluar
 
-document.getElementById("totalKas").innerText=rupiah(kas)
-
-if(document.getElementById("detailTotalKas")){
-document.getElementById("detailTotalKas").innerText=rupiah(kas)
-}
+let elKas=document.getElementById("totalKas")
+if(elKas) elKas.innerText=rupiah(kas)
 
 
 
@@ -166,43 +138,47 @@ generateBelumBayar(rumahBayar)
 
 
 
-// STATISTIK
+// =======================
+// STATISTIK RUMAH
+// =======================
 
 let totalRumah=0
 
 for(let b in blokData){
-
 totalRumah+=blokData[b]
-
 }
 
 let sudahBayar=rumahBayar.length
-
 let belumBayar=totalRumah-sudahBayar
 
-if(document.getElementById("totalRumah")){
-document.getElementById("totalRumah").innerText=totalRumah
+
+
+let elTotalRumah=document.getElementById("totalRumah")
+if(elTotalRumah) elTotalRumah.innerText=totalRumah
+
+let elSudah=document.getElementById("rumahBayar")
+if(elSudah) elSudah.innerText=sudahBayar
+
+let elBelum=document.getElementById("rumahBelum")
+if(elBelum) elBelum.innerText=belumBayar
+
+
+
+// =======================
+// PROGRESS BAR
+// =======================
+
+let persen=0
+
+if(totalRumah>0){
+persen=Math.round((sudahBayar/totalRumah)*100)
 }
-
-if(document.getElementById("rumahBayar")){
-document.getElementById("rumahBayar").innerText=sudahBayar
-}
-
-if(document.getElementById("rumahBelum")){
-document.getElementById("rumahBelum").innerText=belumBayar
-}
-
-
-
-let persen=Math.round((sudahBayar/totalRumah)*100)
 
 let bar=document.getElementById("progressBayar")
 
 if(bar){
-
 bar.style.width=persen+"%"
 bar.innerText=persen+"%"
-
 }
 
 
@@ -226,18 +202,16 @@ for(let i=1;i<=blokData[blok];i++){
 let kode=blok+"-"+i
 
 if(!rumahBayar.includes(kode)){
-
 html+=`<div>${kode}</div>`
-
 }
 
 }
 
 }
 
-if(document.getElementById("rumahBelumBayar")){
-document.getElementById("rumahBelumBayar").innerHTML=html
-}
+let el=document.getElementById("rumahBelumBayar")
+
+if(el) el.innerHTML=html
 
 }
 
@@ -256,14 +230,12 @@ XLSX.writeFile(wb,"laporan-kas.xlsx")
 
 
 const blokData={
-
 "A1":20,
 "A2":24,
 "A3":10,
 "B1":20,
 "B2":20,
 "B3":20
-
 }
 
 
@@ -275,9 +247,7 @@ let html=""
 for(let blok in blokData){
 
 html+=`<div class="blok">
-
 <h6>${blok}</h6>
-
 <div class="rumah-grid">`
 
 for(let i=1;i<=blokData[blok];i++){
@@ -307,10 +277,8 @@ rumahBayar.forEach(r=>{
 let el=document.getElementById(r)
 
 if(el){
-
 el.classList.remove("belum")
 el.classList.add("lunas")
-
 }
 
 })
