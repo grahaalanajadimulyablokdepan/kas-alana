@@ -570,24 +570,7 @@ if(tahun!=""){
 data=data.filter(x=>x.tahun==tahun)
 }
 
-render(data)
+loadData()
 
 }
 
-// generate tanggal
-let tanggalSelect=document.getElementById("tanggal")
-for(let i=1;i<=31;i++){
-let opt=document.createElement("option")
-opt.value=i
-opt.text=i
-tanggalSelect.appendChild(opt)
-}
-
-// generate tahun
-let tahunSelect=document.getElementById("tahun")
-for(let i=2025;i<=2099;i++){
-let opt=document.createElement("option")
-opt.value=i
-opt.text=i
-tahunSelect.appendChild(opt)
-}
