@@ -24,16 +24,25 @@ function tambahIuran(){
 let nama=document.getElementById("nama").value
 let blok=document.getElementById("blok").value
 let rumah=document.getElementById("rumah").value
-let jumlah=document.getElementById("jumlah").value
+let tanggal=document.getElementById("tanggal").value
+let bulan=document.getElementById("bulan").value
+let tahun=document.getElementById("tahun").value
+let jumlah=parseInt(document.getElementById("jumlah").value)
 
-db.collection("iuran").add({
+let data={
 nama:nama,
 blok:blok,
 rumah:rumah,
-jumlah:Number(jumlah)
-}).then(()=>{
-loadData()
-})
+tanggal:tanggal,
+bulan:bulan,
+tahun:tahun,
+jumlah:jumlah
+}
+
+iuran.push(data)
+
+simpanData()
+render()
 
 }
 
@@ -491,5 +500,48 @@ loadKomplain()
 
 let modal = new bootstrap.Modal(document.getElementById("modalKomplainList"))
 modal.show()
+
+}
+
+let tanggalSelect = document.getElementById("tanggal");
+
+for(let i=1;i<=31;i++){
+
+let opt=document.createElement("option")
+opt.value=i
+opt.text=i
+
+tanggalSelect.appendChild(opt)
+
+}
+
+let bulanSelect=document.getElementById("bulan")
+
+let bulanNama=[
+"Januari","Februari","Maret","April","Mei","Juni",
+"Juli","Agustus","September","Oktober","November","Desember"
+]
+
+for(let i=0;i<12;i++){
+
+let opt=document.createElement("option")
+
+opt.value=i+1
+opt.text=bulanNama[i]
+
+bulanSelect.appendChild(opt)
+
+}
+
+let tahunSelect=document.getElementById("tahun")
+
+for(let i=2025;i<=2099;i++){
+
+let opt=document.createElement("option")
+
+opt.value=i
+opt.text=i
+
+tahunSelect.appendChild(opt)
 
 }
