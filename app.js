@@ -57,13 +57,20 @@ loadData()
 function tambahPengeluaran(){
 
 let ket=document.getElementById("ket").value
+let tanggal=document.getElementById("tanggalKeluar").value
+let bulan=document.getElementById("bulanKeluar").value
+let tahun=document.getElementById("tahunKeluar").value
 let jumlah=document.getElementById("jumlahKeluar").value
 
 db.collection("pengeluaran").add({
 ket:ket,
+tanggal:tanggal,
+bulan:bulan,
+tahun:tahun,
 jumlah:Number(jumlah)
 }).then(()=>{
 loadData()
+alert("Pengeluaran berhasil disimpan")
 })
 
 }
