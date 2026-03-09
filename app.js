@@ -453,3 +453,10 @@ document.getElementById("loginWarga").style.display="none"
 }
 
 cekLoginWarga()
+
+function logoutWarga(){
+
+localStorage.removeItem("wargaLogin")
+location.reload()
+
+}
