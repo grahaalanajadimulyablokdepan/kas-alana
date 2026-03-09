@@ -80,15 +80,30 @@ let rumahBayar=[]
 
 db.collection("iuran").get().then(s=>{
 
-let html=""
+let dataIuran=[]
 
 s.forEach(doc=>{
-
 let d=doc.data()
 
 totalIuran+=Number(d.jumlah)
-
 rumahBayar.push(d.blok+"-"+d.rumah)
+
+dataIuran.push(d)
+})
+
+dataIuran.sort((a,b)=>{
+
+if(a.blok===b.blok){
+return Number(a.rumah)-Number(b.rumah)
+}
+
+return a.blok.localeCompare(b.blok)
+
+})
+
+let html=""
+
+dataIuran.forEach(d=>{
 
 html+=`
 <tr>
