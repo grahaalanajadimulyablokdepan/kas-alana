@@ -91,6 +91,7 @@ let dataIuran=[]
 
 s.forEach(doc=>{
 let d=doc.data()
+d.id=doc.id
 
 totalIuran+=Number(d.jumlah)
 rumahBayar.push(d.blok+"-"+d.rumah)
@@ -118,6 +119,13 @@ html+=`
 <td>${d.blok}</td>
 <td>${d.rumah}</td>
 <td>${rupiah(d.jumlah)}</td>
+
+<td>
+<button onclick="hapusIuran('${d.id}')" class="btn btn-danger btn-sm">
+Hapus
+</button>
+</td>
+
 </tr>
 `
 
@@ -579,17 +587,87 @@ function filterIuran(){
 let bulan=document.getElementById("filterBulan").value
 let tahun=document.getElementById("filterTahun").value
 
-let data=dataIuran
+db.collection("iuran")
+.where("bulan","==",bulan)
+.where("tahun","==",tahun)
+.get()
+.then(s=>{
 
-if(bulan!=""){
-data=data.filter(x=>x.bulan==bulan)
+let html=""
+let total=0
+
+s.forEach(doc=>{
+
+let d=doc.data()
+
+total+=Number(d.jumlah)
+
+html+=`
+<tr>
+<td>${d.nama}</td>
+<td>${d.blok}</td>
+<td>${d.rumah}</td>
+<td>${rupiah(d.jumlah)}</td>
+</tr>
+`
+
+})
+
+document.getElementById("detailTabelIuran").innerHTML=html
+document.getElementById("totalIuranDetail").innerText=rupiah(total)
+
+})
+
 }
 
-if(tahun!=""){
-data=data.filter(x=>x.tahun==tahun)
+function filterPengeluaran(){
+
+let bulan=document.getElementById("filterBulanKeluar").value
+let tahun=document.getElementById("filterTahunKeluar").value
+
+db.collection("pengeluaran")
+.where("bulan","==",bulan)
+.where("tahun","==",tahun)
+.get()
+.then(s=>{
+
+let html=""
+let total=0
+
+s.forEach(doc=>{
+
+let d=doc.data()
+
+total+=Number(d.jumlah)
+
+html+=`
+<tr>
+<td>${d.tanggal}</td>
+<td>${d.bulan}</td>
+<td>${d.tahun}</td>
+<td>${d.ket}</td>
+<td>${rupiah(d.jumlah)}</td>
+</tr>
+`
+
+})
+
+document.getElementById("detailTabelKeluar").innerHTML=html
+document.getElementById("totalKeluarDetail").innerText=rupiah(total)
+
+})
+
 }
 
-render(data)
+function hapusIuran(id){
+
+if(confirm("Hapus data ini?")){
+
+db.collection("iuran").doc(id).delete()
+.then(()=>{
+loadData()
+})
 
 }
 
+}
