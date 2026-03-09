@@ -1,4 +1,5 @@
 const passwords=["ketua123","bendahara123"]
+let iuran=JSON.parse(localStorage.getItem("dataIuran")) || []
 
 function loginAdmin(){
 
