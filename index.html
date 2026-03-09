@@ -118,19 +118,16 @@ data-bs-target="#modalKontak">
 
 <button class="menu-btn btn btn-danger w-100 mb-2"
 data-bs-dismiss="offcanvas"
-data-bs-toggle="modal"
-data-bs-target="#modalKomplain">
+onclick="cekAksesKomplain()">
+
 📝 Komplain / Masukan Warga
 <span class="badge bg-danger ms-2" id="badgeKomplain">0</span>
 
 </button>
 
 <button class="btn btn-warning w-100 mb-2"
-onclick="loadKomplain()"
-data-bs-dismiss="offcanvas"
-data-bs-toggle="modal"
-data-bs-target="#modalKomplainList">
-
+onclick="cekAksesDaftarKomplain()"
+data-bs-dismiss="offcanvas">
 📋 Daftar Komplain Warga
 </button>
 </div>
