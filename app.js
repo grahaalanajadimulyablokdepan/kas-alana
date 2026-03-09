@@ -152,7 +152,7 @@ if(tabel) tabel.innerHTML=html
 let totalIuranEl=document.getElementById("totalIuran")
 if(totalIuranEl) totalIuranEl.innerText=rupiah(totalIuran)
 
-generateBelumBayar()
+generateBelumBayar(rumahBayar)
 
 db.collection("pengeluaran").get().then(p=>{
 
@@ -686,16 +686,15 @@ loadData()
 }
 
 }
-function generateBelumBayar(){
+
+function generateBelumBayar(rumahBayar){
 
 let belum=[]
 
 semuaRumah.forEach(r=>{
-
 if(!rumahBayar.includes(r)){
 belum.push(r)
 }
-
 })
 
 let html=""
