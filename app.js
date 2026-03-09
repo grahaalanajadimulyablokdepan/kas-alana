@@ -30,7 +30,7 @@ let bulan=document.getElementById("bulan").value
 let tahun=document.getElementById("tahun").value
 let jumlah=parseInt(document.getElementById("jumlah").value)
 
-if(!nama || !rumah || !jumlah){
+if(!nama || !rumah || !tanggal || !bulan || !tahun || !jumlah){
 alert("Data belum lengkap")
 return
 }
