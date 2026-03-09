@@ -338,3 +338,43 @@ document.getElementById("komplainIsi").value=""
 })
 
 }
+function bukaRumah(kode){
+
+let modal=new bootstrap.Modal(document.getElementById("modalRumah"))
+
+document.getElementById("judulRumah").innerText="Histori Pembayaran "+kode
+
+db.collection("iuran")
+.where("blok","==",kode.split("-")[0])
+.where("rumah","==",kode.split("-")[1])
+.get()
+.then(s=>{
+
+let html=""
+
+s.forEach(doc=>{
+
+let d=doc.data()
+
+html+=`
+<tr>
+<td>${d.nama}</td>
+<td>${d.blok}</td>
+<td>${d.rumah}</td>
+<td>${rupiah(d.jumlah)}</td>
+</tr>
+`
+
+})
+
+if(html==""){
+html=`<tr><td colspan="4" class="text-center">Belum ada pembayaran</td></tr>`
+}
+
+document.getElementById("historiRumah").innerHTML=html
+
+modal.show()
+
+})
+
+}
