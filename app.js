@@ -388,3 +388,37 @@ document.getElementById("badgeKomplain").innerText=s.size
 })
 
 }
+function loadKomplain(){
+
+db.collection("komplain")
+.orderBy("tanggal","desc")
+.get()
+.then(s=>{
+
+let html=""
+
+s.forEach(doc=>{
+
+let d=doc.data()
+
+html+=`
+<tr>
+<td>${d.nama}</td>
+<td>${d.blok}</td>
+<td>${d.rumah}</td>
+<td>${d.hp}</td>
+<td>${d.isi}</td>
+</tr>
+`
+
+})
+
+if(html==""){
+html=`<tr><td colspan="5">Belum ada komplain</td></tr>`
+}
+
+document.getElementById("tabelKomplain").innerHTML=html
+
+})
+
+}
