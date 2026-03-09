@@ -154,6 +154,8 @@ if(totalIuranEl) totalIuranEl.innerText=rupiah(totalIuran)
 
 generateBelumBayar(rumahBayar)
 
+  updateChart(totalIuran,totalKeluar)
+
 db.collection("pengeluaran").get().then(p=>{
 
 let htmlKeluar=""
@@ -705,4 +707,29 @@ html+=`<span class="badge bg-danger m-1">${r}</span>`
 
 document.getElementById("rumahBelumBayar").innerHTML=html
 
+}
+
+function updateChart(iuran,keluar){
+
+let kas=iuran-keluar
+
+let ctx=document.getElementById("chartKas")
+
+if(!ctx) return
+
+new Chart(ctx,{
+type:"bar",
+data:{
+labels:["Iuran","Pengeluaran","Kas"],
+datasets:[{
+label:"Keuangan",
+data:[iuran,keluar,kas],
+backgroundColor:[
+"#198754",
+"#dc3545",
+"#0d6efd"
+]
+}]
+}
+})
 }
