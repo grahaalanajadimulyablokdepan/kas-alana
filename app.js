@@ -19,7 +19,6 @@ return "Rp"+Number(n).toLocaleString("id-ID")
 }
 
 
-
 function tambahIuran(){
 
 let nama=document.getElementById("nama").value
@@ -45,13 +44,11 @@ tahun:tahun,
 jumlah:jumlah
 }
 
-iuran.push(data)
-
-localStorage.setItem("dataIuran",JSON.stringify(iuran))
-
-loadData()
-
+db.collection("iuran").add(data)
+.then(()=>{
 alert("Iuran berhasil disimpan")
+loadData()
+})
 
 }
 
