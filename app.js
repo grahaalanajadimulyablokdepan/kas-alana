@@ -151,7 +151,13 @@ if(tabel) tabel.innerHTML=html
 
 let totalIuranEl=document.getElementById("totalIuran")
 if(totalIuranEl) totalIuranEl.innerText=rupiah(totalIuran)
+document.getElementById("detailIuran").innerText = rupiah(totalIuran)
+document.getElementById("detailIuran2").innerText = rupiah(totalIuran)
 
+let kas = totalIuran - totalKeluar
+document.getElementById("detailKas").innerText = rupiah(kas)
+document.getElementById("detailKas2").innerText = rupiah(kas)
+  
 generateBelumBayar(rumahBayar)
 
   updateChart(totalIuran,totalKeluar)
