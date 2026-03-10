@@ -1078,3 +1078,18 @@ font-size:11px;
 
 }
 
+/* FIX FONT TABLE */
+
+table{
+color:#000 !important;
+background:#ffffff !important;
+}
+
+table th{
+color:#000 !important;
+background:#f1f1f1 !important;
+}
+
+table td{
+color:#000 !important;
+}
