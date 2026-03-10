@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>KAS Graha Alana Blok Depan</title>
+<title>KAS GRAHA ALANA BLOK DEPAN</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -22,19 +22,15 @@
 
 <body>
 
-<!-- HEADER MEWAH -->
+<!-- HEADER -->
 
 <header class="header">
 
 <div class="logo">
-
 🏡 KAS GRAHA ALANA BLOK DEPAN
-
 </div>
 
-<button class="hamburger" onclick="toggleMenu()">
-☰
-</button>
+<button class="hamburger" onclick="toggleMenu()">☰</button>
 
 </header>
 
@@ -42,8 +38,9 @@
 
 <div id="sideMenu" class="sideMenu">
 
-<h4>Graha Alana</h4>
+<h4>Menu Lingkungan</h4>
 
+<button onclick="openInfo('tentang')">Tentang Perumahan</button>
 <button onclick="openInfo('visi')">Visi & Misi</button>
 <button onclick="openInfo('fasilitas')">Fasilitas</button>
 <button onclick="openInfo('keamanan')">Sistem Keamanan</button>
@@ -53,8 +50,8 @@
 
 <hr>
 
-<button onclick="showPopup('komplainPopup')">Komplain Warga</button>
-<button onclick="showPopup('daftarKomplainPopup')">Daftar Komplain</button>
+<button onclick="showPopup('komplainPopup')">Komplain</button>
+<button onclick="showPopup('komplainListPopup')">Daftar Komplain</button>
 
 </div>
 
@@ -65,34 +62,40 @@
 <div class="row g-3">
 
 <div class="col-md-4">
+
 <div class="card dashboardCard">
 
-<h5>Total Iuran</h5>
+<h6>Total Iuran</h6>
 <h3 id="totalIuran">Rp0</h3>
 
 </div>
+
 </div>
 
 <div class="col-md-4">
+
 <div class="card dashboardCard">
 
-<h5>Total Pengeluaran</h5>
+<h6>Total Pengeluaran</h6>
 <h3 id="totalKeluar">Rp0</h3>
 
 </div>
+
 </div>
 
 <div class="col-md-4">
+
 <div class="card dashboardCard">
 
-<h5>Total Kas</h5>
+<h6>Total Kas</h6>
 <h3 id="totalKas">Rp0</h3>
 
-<button onclick="showPopup('detailKasPopup')">
+<button class="btn btn-dark btn-sm" onclick="showPopup('detailKasPopup')">
 Detail Kas
 </button>
 
 </div>
+
 </div>
 
 </div>
@@ -103,9 +106,23 @@ Detail Kas
 
 <div class="card-body">
 
-<h5>Grafik Kas</h5>
+<h5>Grafik Keuangan</h5>
 
 <canvas id="chartKas"></canvas>
+
+</div>
+
+</div>
+
+<!-- STATISTIK BLOK -->
+
+<div class="card mt-4">
+
+<div class="card-body">
+
+<h5>Statistik Pembayaran</h5>
+
+<div id="statistikBlok"></div>
 
 </div>
 
@@ -139,133 +156,19 @@ Detail Kas
 
 </div>
 
-<!-- ACTION BUTTON -->
+<!-- ACTION -->
 
 <div class="actionButtons">
 
-<button onclick="showPopup('loginAdminPopup')">
-Login Admin
-</button>
+<button onclick="showPopup('loginAdminPopup')">Login Admin</button>
 
-<button onclick="showPopup('loginWargaPopup')">
-Login Warga
-</button>
+<button onclick="showPopup('loginWargaPopup')">Login Warga</button>
 
-<button onclick="showPopup('iuranPopup')">
-Input Iuran
-</button>
+<button onclick="showPopup('iuranPopup')">Input Iuran</button>
 
-<button onclick="showPopup('pengeluaranPopup')">
-Input Pengeluaran
-</button>
+<button onclick="showPopup('pengeluaranPopup')">Input Pengeluaran</button>
 
-<button onclick="exportExcel()">
-Export Excel
-</button>
-
-</div>
-
-</div>
-
-<!-- POPUP LOGIN ADMIN -->
-
-<div class="popup" id="loginAdminPopup">
-
-<div class="popupContent">
-
-<h4>Login Admin</h4>
-
-<input id="adminUser" placeholder="Username">
-<input id="adminPass" type="password" placeholder="Password">
-
-<button onclick="loginAdmin()">Login</button>
-
-</div>
-
-</div>
-
-<!-- POPUP LOGIN WARGA -->
-
-<div class="popup" id="loginWargaPopup">
-
-<div class="popupContent">
-
-<h4>Login Warga</h4>
-
-<input id="wargaNama" placeholder="Nama">
-<input id="wargaBlok" placeholder="Blok">
-<input id="wargaRumah" placeholder="No Rumah">
-
-<button onclick="loginWarga()">Login</button>
-
-</div>
-
-</div>
-
-<!-- POPUP IURAN -->
-
-<div class="popup" id="iuranPopup">
-
-<div class="popupContent">
-
-<h4>Input Iuran</h4>
-
-<input id="namaIuran" placeholder="Nama">
-
-<select id="blokIuran"></select>
-<select id="rumahIuran"></select>
-
-<select id="tglIuran"></select>
-<select id="blnIuran"></select>
-<select id="thnIuran"></select>
-
-<input id="nominalIuran" placeholder="Nominal">
-
-<button onclick="tambahIuran()">Simpan</button>
-
-</div>
-
-</div>
-
-<!-- POPUP PENGELUARAN -->
-
-<div class="popup" id="pengeluaranPopup">
-
-<div class="popupContent">
-
-<h4>Input Pengeluaran</h4>
-
-<select id="tglKeluar"></select>
-<select id="blnKeluar"></select>
-<select id="thnKeluar"></select>
-
-<input id="ketKeluar" placeholder="Keterangan">
-<input id="nominalKeluar" placeholder="Nominal">
-
-<button onclick="tambahPengeluaran()">Simpan</button>
-
-</div>
-
-</div>
-
-<!-- POPUP KOMPLAIN -->
-
-<div class="popup" id="komplainPopup">
-
-<div class="popupContent">
-
-<h4>Komplain Warga</h4>
-
-<input id="namaKomplain" placeholder="Nama">
-<input id="blokKomplain" placeholder="Blok">
-
-<select id="tglKomplain"></select>
-<select id="blnKomplain"></select>
-<select id="thnKomplain"></select>
-
-<textarea id="isiKomplain"></textarea>
-
-<button onclick="kirimKomplain()">Kirim</button>
+<button onclick="exportExcel()">Export Excel</button>
 
 </div>
 
