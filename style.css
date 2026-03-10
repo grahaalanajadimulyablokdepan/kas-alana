@@ -1,333 +1,70 @@
 body{
-background:#f4f6fb;
-font-family:system-ui;
+background:#f3f5f8;
+font-family:Arial;
+}
+
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#0d6efd;
+color:white;
+padding:15px;
 }
 
 .logo{
-height:40px;
-margin-right:10px;
-}
-
-.header-sub{
-font-size:12px;
-opacity:0.7;
-}
-
-.card{
-border:none;
-border-radius:15px;
-}
-
-.dashboard-card{
-padding:30px;
-border-radius:20px;
-color:white;
-text-align:center;
-cursor:pointer;
-transition:0.3s;
-}
-
-.dashboard-card:hover{
-transform:translateY(-5px);
-}
-
-.kas{
-background:linear-gradient(135deg,#2563eb,#1e40af);
-}
-
-.iuran{
-background:linear-gradient(135deg,#16a34a,#15803d);
-}
-
-.keluar{
-background:linear-gradient(135deg,#dc2626,#991b1b);
-}
-
-#mapPerumahan{
-display:grid;
-gap:20px;
-}
-
-.blok{
-background:white;
-padding:15px;
-border-radius:12px;
-}
-
-.rumah-grid{
-display:grid;
-grid-template-columns:repeat(5,1fr);
-gap:10px;
-}
-
-.rumah{
-padding:12px;
-border-radius:8px;
-text-align:center;
 font-weight:bold;
-color:white;
-}
-
-.belum{
-background:#dc2626;
-}
-
-.lunas{
-background:#16a34a;
-}
-
-/* ===== MODAL MODERN UI ===== */
-
-.modal-content{
-border-radius:20px;
-border:none;
-overflow:hidden;
-box-shadow:0 25px 60px rgba(0,0,0,0.25);
-animation:popupFade 0.3s ease;
-}
-
-/* HEADER MODAL */
-
-.modal-header{
-background:linear-gradient(135deg,#2563eb,#1e40af);
-color:white;
-border:none;
-padding:18px 22px;
-}
-
-.modal-header h5{
-font-weight:600;
 font-size:18px;
 }
 
-.btn-close{
-filter:invert(1);
-}
-
-/* BODY MODAL */
-
-.modal-body{
-padding:22px;
-font-size:15px;
-line-height:1.6;
-}
-
-/* FOOTER */
-
-.modal-footer{
-border:none;
-padding:16px;
-}
-
-/* INPUT MODAL */
-
-.modal-body input,
-.modal-body textarea,
-.modal-body select{
-
-border-radius:12px;
-padding:12px;
-border:1px solid #e5e7eb;
-transition:all .2s;
-
-}
-
-.modal-body input:focus,
-.modal-body textarea:focus,
-.modal-body select:focus{
-
-border-color:#2563eb;
-box-shadow:0 0 0 3px rgba(37,99,235,0.2);
-
-}
-
-/* BUTTON MODAL */
-
-.modal-body button{
-
-border-radius:12px;
-padding:12px;
-font-weight:600;
-background:linear-gradient(135deg,#2563eb,#1d4ed8);
-border:none;
-
-}
-
-.modal-body button:hover{
-
-transform:scale(1.03);
-opacity:0.95;
-
-}
-
-/* ANIMASI POPUP */
-
-@keyframes popupFade{
-
-from{
-transform:translateY(30px);
-opacity:0;
-}
-
-to{
-transform:translateY(0);
-opacity:1;
-}
-
-}
-
-/* ===== MODAL SUPER UI ===== */
-
-.modal-dialog{
-margin:0;
-display:flex;
-align-items:flex-end;
-min-height:100vh;
-}
-
-.modal-dialog-centered{
-align-items:center;
-}
-
-.modal-content{
-
-border-radius:25px 25px 0 0;
-border:none;
-backdrop-filter:blur(12px);
-background:rgba(255,255,255,0.9);
-box-shadow:0 30px 80px rgba(0,0,0,0.25);
-
-animation:modalSlideUp .35s ease;
-
-}
-
-/* HEADER */
-
-.modal-header{
-
-background:linear-gradient(135deg,#2563eb,#1e40af);
-color:white;
-border:none;
-padding:18px 22px;
-font-weight:600;
-
-}
-
-.modal-header h5{
-font-weight:600;
-letter-spacing:.3px;
-}
-
-.btn-close{
-filter:invert(1);
-}
-
-/* BODY */
-
-.modal-body{
-padding:24px;
-line-height:1.6;
-}
-
-/* INPUT */
-
-.modal-body input,
-.modal-body select,
-.modal-body textarea{
-
-border-radius:14px;
-padding:12px;
-border:1px solid #e5e7eb;
-transition:.2s;
-
-}
-
-.modal-body input:focus,
-.modal-body textarea:focus,
-.modal-body select:focus{
-
-border-color:#2563eb;
-box-shadow:0 0 0 3px rgba(37,99,235,0.2);
-
-}
-
-/* BUTTON */
-
-.modal-body button{
-
-border-radius:14px;
-padding:13px;
-font-weight:600;
-
-background:linear-gradient(135deg,#2563eb,#1d4ed8);
-
+.hamburger{
+background:none;
 border:none;
 color:white;
-
-transition:.2s;
-
+font-size:24px;
 }
 
-.modal-body button:hover{
-
-transform:translateY(-2px);
-box-shadow:0 8px 20px rgba(37,99,235,0.35);
-
+.sideMenu{
+position:fixed;
+right:-300px;
+top:0;
+width:300px;
+height:100%;
+background:white;
+padding:20px;
+transition:0.3s;
+box-shadow:-3px 0 10px rgba(0,0,0,0.2);
 }
 
-/* ANIMASI */
-
-@keyframes modalSlideUp{
-
-from{
-
-transform:translateY(60px);
-opacity:0;
-
+.sideMenu.open{
+right:0;
 }
 
-to{
-
-transform:translateY(0);
-opacity:1;
-
-}
-
-}
-
-/* HEADER WARNA MENU */
-
-#modalTentang .modal-header{
-background:linear-gradient(135deg,#2563eb,#1e40af);
-}
-
-#modalVisi .modal-header{
-background:linear-gradient(135deg,#16a34a,#15803d);
-}
-
-#modalFasilitas .modal-header{
-background:linear-gradient(135deg,#06b6d4,#0891b2);
-}
-
-#modalKeamanan .modal-header{
-background:linear-gradient(135deg,#f59e0b,#d97706);
-}
-
-#modalPeraturan .modal-header{
-background:linear-gradient(135deg,#6b7280,#374151);
-}
-
-#modalPengumuman .modal-header{
-background:linear-gradient(135deg,#111827,#000000);
-}
-
-#modalKontak .modal-header{
-background:linear-gradient(135deg,#ef4444,#b91c1c);
-}
-
-#modalKomplain .modal-header{
-background:linear-gradient(135deg,#7c3aed,#5b21b6);
-}
-#dashboard{
+.popup{
 display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+}
+
+.popupContent{
+background:white;
+padding:20px;
+width:300px;
+margin:100px auto;
+border-radius:10px;
+}
+
+.actionButtons{
+margin-top:30px;
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+}
+
+#rumahBelumBayar span{
+margin:3px;
 }
