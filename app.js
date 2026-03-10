@@ -486,7 +486,7 @@ snapshot.forEach(doc=>{
 
 let d=doc.data()
 
-total += Number(d.nominal)
+total += Number(d.jumlah)
 
 let kode = d.blok+"-"+d.rumah
 
@@ -553,7 +553,7 @@ snapshot.forEach(doc=>{
 
 let d=doc.data()
 
-total += Number(d.nominal)
+total += Number(d.jumlah)
 
 html += `
 
@@ -1310,7 +1310,7 @@ snapshot.forEach(doc=>{
 
 let d=doc.data()
 
-total+=Number(d.nominal)
+total+=Number(d.jumlah)
 
 html+=`
 
@@ -1374,7 +1374,7 @@ snapshot.forEach(doc=>{
 
 let d=doc.data()
 
-total+=Number(d.nominal)
+total+=Number(d.jumlah)
 
 html+=`
 
