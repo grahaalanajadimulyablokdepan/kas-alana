@@ -174,7 +174,7 @@ if(tabelKeluar) tabelKeluar.innerHTML=htmlKeluar
 
 let totalKeluarEl=document.getElementById("totalKeluar")
 if(totalKeluarEl) totalKeluarEl.innerText=rupiah(totalKeluar)
-let kas = totalIuran - totalKeluar
+let kas = Number(totalIuran) - Number(totalKeluar)
 
 let totalKasEl=document.getElementById("totalKas")
 if(totalKasEl) totalKasEl.innerText = rupiah(kas)
