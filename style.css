@@ -1093,3 +1093,27 @@ background:#f1f1f1 !important;
 table td{
 color:#000 !important;
 }
+
+/* FORCE FIX TABLE FONT */
+
+table, 
+table th, 
+table td{
+color:#000 !important;
+}
+
+table{
+background:#ffffff !important;
+}
+
+table th{
+background:#e9ecef !important;
+font-weight:bold;
+}
+
+.popup table,
+.popup th,
+.popup td{
+color:#000 !important;
+background:#fff !important;
+}
