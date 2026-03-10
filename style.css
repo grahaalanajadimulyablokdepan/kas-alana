@@ -1117,3 +1117,18 @@ font-weight:bold;
 color:#000 !important;
 background:#fff !important;
 }
+
+/* FIX TEXT DASHBOARD */
+
+.dashboard h1,
+.dashboard h2,
+.dashboard h3,
+.dashboard h4,
+.dashboard h5,
+.dashboard h6{
+color:white !important;
+}
+
+.dashboard p{
+color:white !important;
+}
