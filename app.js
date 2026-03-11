@@ -514,7 +514,7 @@ tanggal:tanggal,
 bulan:bulan,
 tahun:tahun,
 ket:ket,
-nominal:Number(nominal),
+nominal:Number(nominal)
 created:new Date()
 
 })
@@ -567,7 +567,7 @@ html += `
 
 <td>
 
-<button onclick="hapusIuran('${doc.id}')">
+<button class="hapusBtn" onclick="hapusIuran('${doc.id}')">
 
 Hapus
 
