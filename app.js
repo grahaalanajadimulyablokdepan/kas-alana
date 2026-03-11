@@ -491,7 +491,7 @@ LOAD DATA IURAN REALTIME
 
 function loadIuran(){
 
-colIuran.orderBy("created","desc")
+colIuran.orderBy("tanggal","desc")
 
 .onSnapshot(snapshot=>{
 
@@ -560,7 +560,7 @@ LOAD DATA PENGELUARAN
 
 function loadKeluar(){
 
-colKeluar.orderBy("created","desc")
+colKeluar.orderBy("tanggal","desc")
 
 .onSnapshot(snapshot=>{
 
@@ -1128,7 +1128,7 @@ function loadKomplain(){
 
 colKomplain
 
-.orderBy("created","desc")
+.orderBy("tanggal","desc")
 
 .onSnapshot(snapshot=>{
 
@@ -1216,7 +1216,7 @@ function loadKomplainAdmin(){
 
 colKomplain
 
-.orderBy("created","desc")
+.orderBy("tanggal","desc")
 
 .onSnapshot(snapshot=>{
 
@@ -3794,11 +3794,11 @@ QUERY LIMITER
 function limitQuery(){
 
 colIuran
-.orderBy("created","desc")
+.orderBy("tanggal","desc")
 .limit(200)
 
 colKeluar
-.orderBy("created","desc")
+.orderBy("tanggal","desc")
 .limit(200)
 
 }
