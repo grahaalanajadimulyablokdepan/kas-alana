@@ -4318,3 +4318,31 @@ if(e.target.classList.contains("popup")){
 e.target.style.display="none"
 }
 }
+
+function animateNumber(id,target){
+
+let el=document.getElementById(id)
+
+let start=0
+let duration=1000
+let step=target/(duration/16)
+
+function update(){
+
+start+=step
+
+if(start>=target){
+start=target
+}
+
+el.innerText="Rp"+Math.floor(start).toLocaleString("id-ID")
+
+if(start<target){
+requestAnimationFrame(update)
+}
+
+}
+
+update()
+
+}
