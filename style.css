@@ -103,6 +103,17 @@ z-index:999;
 box-shadow:5px 0 20px rgba(0,0,0,0.5);
 }
 
+#menuOverlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.4);
+display:none;
+z-index:900;
+}
+
 .menuHeader{
 
 padding:25px;
