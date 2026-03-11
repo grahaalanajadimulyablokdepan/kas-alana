@@ -4431,6 +4431,9 @@ if(el){
 el.style.display="flex"
 }
 
+/* auto close menu */
+document.getElementById("sideMenu").style.left = "-280px"
+
 }
 
 function closeInfo(){
