@@ -443,9 +443,9 @@ width:700px;
 }
 
 .popupLarge{
-
 width:500px;
-
+max-height:80vh;
+overflow-y:auto;
 }
 
 .popupBox h4{
