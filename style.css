@@ -86,11 +86,10 @@ cursor:pointer;
 SIDEMENU
 ========================= */
 
-.sideMenu{
-
+#sideMenu{
 position:fixed;
 top:0;
-right:-320px;
+left:-320px;
 
 width:320px;
 height:100vh;
@@ -101,14 +100,7 @@ transition:0.4s;
 
 z-index:999;
 
-box-shadow:-5px 0 20px rgba(0,0,0,0.5);
-
-}
-
-.sideMenu.open{
-
-right:0;
-
+box-shadow:5px 0 20px rgba(0,0,0,0.5);
 }
 
 .menuHeader{
