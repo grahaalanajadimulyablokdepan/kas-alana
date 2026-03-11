@@ -1234,3 +1234,13 @@ display:none;
 .admin-mode button.hapusBtn{
 display:inline-block;
 }
+
+/* tombol hapus hanya untuk admin */
+
+.hapusBtn{
+display:none;
+}
+
+.admin-mode .hapusBtn{
+display:inline-block;
+}
