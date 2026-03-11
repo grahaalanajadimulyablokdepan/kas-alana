@@ -4417,3 +4417,29 @@ menu.classList.add("open")
 function closeMenu(){
 document.getElementById("sideMenu").classList.remove("open")
 }
+
+/* =========================
+   MENU INFO POPUP
+========================= */
+
+function openInfo(id){
+
+document.querySelectorAll(".infoPopup").forEach(p=>{
+p.style.display="none"
+})
+
+let el = document.getElementById(id+"Popup")
+
+if(el){
+el.style.display="flex"
+}
+
+}
+
+function closeInfo(){
+
+document.querySelectorAll(".infoPopup").forEach(p=>{
+p.style.display="none"
+})
+
+}
