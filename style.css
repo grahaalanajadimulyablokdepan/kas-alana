@@ -520,6 +520,17 @@ font-weight:bold;
 z-index:1000;
 }
 
+.popup{
+align-items:center;
+justify-content:center;
+overflow:auto;
+}
+
+.popup-content{
+max-height:80vh;
+overflow-y:auto;
+}
+
 /* =========================
 LOADER
 ========================= */
