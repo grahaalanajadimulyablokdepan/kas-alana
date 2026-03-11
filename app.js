@@ -4402,20 +4402,17 @@ update()
    SIDE MENU CONTROL
 ========================= */
 
+
 function toggleMenu(){
 
 let menu = document.getElementById("sideMenu")
 
-if(menu.classList.contains("open")){
-menu.classList.remove("open")
+if(menu.style.left === "0px"){
+menu.style.left = "-280px"
 }else{
-menu.classList.add("open")
+menu.style.left = "0px"
 }
 
-}
-
-function closeMenu(){
-document.getElementById("sideMenu").classList.remove("open")
 }
 
 /* =========================
