@@ -283,27 +283,17 @@ Detail
 
 <div class="actionButtons">
 
-<button id="btnLoginAdmin" onclick="showPopup('loginAdminPopup')">
-Login Admin
-</button>
+<button onclick="logoutSystem()">Logout</button>
 
-<button id="btnLogoutAdmin" onclick="logoutAdmin()">
-Logout Admin
-</button>
-  
-<button onclick="showPopup('loginWargaPopup')">
-Login Warga
-</button>
-
-<button onclick="if(cekAdmin()) showPopup('iuranPopup')">
+<button id="btnIuran" onclick="showPopup('iuranPopup')">
 Input Iuran
 </button>
 
-<button onclick="if(cekAdmin()) showPopup('pengeluaranPopup')">
+<button id="btnPengeluaran" onclick="showPopup('pengeluaranPopup')">
 Input Pengeluaran
 </button>
 
-<button onclick="exportExcel()">
+<button id="btnExport" onclick="exportExcel()">
 Export Excel
 </button>
 
