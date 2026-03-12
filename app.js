@@ -4499,3 +4499,36 @@ menu.style.right = "-320px"
 isDragging = false
 
 })
+
+// ============================
+// ANIMATED COUNTER
+// ============================
+
+function animateCounter(id,target){
+
+let el = document.getElementById(id)
+
+let start = 0
+let duration = 1200
+let step = target/(duration/16)
+
+function update(){
+
+start += step
+
+if(start < target){
+
+el.innerText = "Rp" + Math.floor(start).toLocaleString("id-ID")
+requestAnimationFrame(update)
+
+}else{
+
+el.innerText = "Rp" + target.toLocaleString("id-ID")
+
+}
+
+}
+
+update()
+
+}
