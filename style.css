@@ -1315,3 +1315,7 @@ transition:0.3s;
 transform:translateY(-6px);
 box-shadow:0 15px 35px rgba(0,0,0,0.4);
 }
+
+.hamburger:hover{
+background:rgba(255,255,255,0.2);
+}
