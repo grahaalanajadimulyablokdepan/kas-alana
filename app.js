@@ -4446,3 +4446,53 @@ p.style.display="none"
 })
 
 }
+
+// ============================
+// SWIPE SIDEBAR MOBILE STYLE
+// ============================
+
+let startX = 0
+let currentX = 0
+let isDragging = false
+
+document.addEventListener("touchstart",function(e){
+
+startX = e.touches[0].clientX
+
+if(startX > window.innerWidth - 50){
+isDragging = true
+}
+
+})
+
+document.addEventListener("touchmove",function(e){
+
+if(!isDragging) return
+
+currentX = e.touches[0].clientX
+
+let diff = startX - currentX
+
+let menu = document.getElementById("sideMenu")
+
+if(diff < 0){
+menu.style.right = Math.min(0 , -320 - diff) + "px"
+}
+
+})
+
+document.addEventListener("touchend",function(){
+
+if(!isDragging) return
+
+let menu = document.getElementById("sideMenu")
+
+if(parseInt(menu.style.right) > -160){
+menu.style.right = "0px"
+}else{
+menu.style.right = "-320px"
+}
+
+isDragging = false
+
+})
