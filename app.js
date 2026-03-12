@@ -4638,3 +4638,29 @@ localStorage.removeItem("wargaRumah")
 location.reload()
 
 }
+
+function kontrolMenu(){
+
+let admin = localStorage.getItem("adminLogin")
+let warga = localStorage.getItem("wargaLogin")
+
+let btnIuran = document.getElementById("btnIuran")
+let btnPengeluaran = document.getElementById("btnPengeluaran")
+
+if(admin === "true"){
+
+btnIuran.style.display = "inline-block"
+btnPengeluaran.style.display = "inline-block"
+
+}
+
+else if(warga === "true"){
+
+btnIuran.style.display = "none"
+btnPengeluaran.style.display = "none"
+
+}
+
+}
+
+window.addEventListener("load", kontrolMenu)
