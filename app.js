@@ -4627,3 +4627,14 @@ let blok = localStorage.getItem("wargaBlok")
 let rumah = localStorage.getItem("wargaRumah")
 
 let pengirim = blok + rumah
+
+function logoutSystem(){
+
+localStorage.removeItem("adminLogin")
+localStorage.removeItem("wargaLogin")
+localStorage.removeItem("wargaBlok")
+localStorage.removeItem("wargaRumah")
+
+location.reload()
+
+}
