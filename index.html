@@ -255,11 +255,11 @@ Login Admin
 Login Warga
 </button>
 
-<button onclick="showPopup('iuranPopup')">
+<button onclick="if(cekAdmin()) showPopup('iuranPopup')">
 Input Iuran
 </button>
 
-<button onclick="showPopup('pengeluaranPopup')">
+<button onclick="if(cekAdmin()) showPopup('pengeluaranPopup')">
 Input Pengeluaran
 </button>
 
