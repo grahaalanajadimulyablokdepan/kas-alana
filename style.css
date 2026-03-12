@@ -1368,3 +1368,16 @@ border:none;
 border-radius:6px;
 cursor:pointer;
 }
+
+.btnLogout{
+background:#ff4d4d;
+color:white;
+border:none;
+padding:8px 16px;
+border-radius:6px;
+cursor:pointer;
+}
+
+.btnLogout:hover{
+background:#ff2e2e;
+}
