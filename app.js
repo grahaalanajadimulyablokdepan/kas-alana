@@ -4582,26 +4582,35 @@ window.addEventListener("load", updateAdminButtons)
 
 function loginGate(){
 
-let user = document.getElementById("loginUser").value
+let blok = document.getElementById("loginBlok").value
+let rumah = document.getElementById("loginRumah").value
 let pass = document.getElementById("loginPass").value
 
-if(user === "admin" && pass === "12345"){
+/* LOGIN ADMIN */
+
+if(blok === "admin" && pass === "12345"){
 
 localStorage.setItem("adminLogin","true")
-localStorage.setItem("wargaLogin","false")
 
-document.getElementById("loginGate").style.display = "none"
+document.getElementById("loginGate").style.display="none"
 
-}else if(user === "warga" && pass === "12345"){
+return
+
+}
+
+/* LOGIN WARGA */
+
+if(blok !== "" && rumah !== "" && pass === "12345"){
 
 localStorage.setItem("wargaLogin","true")
-localStorage.setItem("adminLogin","false")
+localStorage.setItem("wargaBlok",blok)
+localStorage.setItem("wargaRumah",rumah)
 
-document.getElementById("loginGate").style.display = "none"
+document.getElementById("loginGate").style.display="none"
 
 }else{
 
-alert("Username atau password salah")
+alert("Login gagal")
 
 }
 
@@ -4614,3 +4623,7 @@ document.getElementById("loginGate").style.display = "none"
 }
 
 })
+let blok = localStorage.getItem("wargaBlok")
+let rumah = localStorage.getItem("wargaRumah")
+
+let pengirim = blok + rumah
