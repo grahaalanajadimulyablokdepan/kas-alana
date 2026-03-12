@@ -1302,3 +1302,12 @@ opacity:0;
 .hamburger.active span:nth-child(3){
 transform:rotate(-45deg) translate(6px,-6px);
 }
+
+.card{
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 15px 35px rgba(0,0,0,0.4);
+}
