@@ -287,13 +287,11 @@ Detail
 
 <button onclick="logoutSystem()">Logout</button>
 
-<button id="btnIuran" onclick="showPopup('iuranPopup')">
-Input Iuran
-</button>
+<button id="btnIuran"
+onclick="if(localStorage.getItem('adminLogin')==='true'){showPopup('iuranPopup')}">
 
-<button id="btnPengeluaran" onclick="showPopup('pengeluaranPopup')">
-Input Pengeluaran
-</button>
+<button id="btnPengeluaran"
+onclick="if(localStorage.getItem('adminLogin')==='true'){showPopup('pengeluaranPopup')}">
 
 <button id="btnExport" onclick="exportExcel()">
 Export Excel
