@@ -4586,6 +4586,21 @@ let blok = document.getElementById("loginBlok").value
 let rumah = document.getElementById("loginRumah").value
 let pass = document.getElementById("loginPass").value
 
+if(blok !== "" && rumah !== "" && pass === "12345"){
+
+localStorage.setItem("wargaLogin","true")
+localStorage.setItem("wargaBlok",blok)
+localStorage.setItem("wargaRumah",rumah)
+
+location.href = "dashboard.html"
+
+}else{
+
+alert("Login gagal")
+
+}
+
+}
 /* LOGIN ADMIN */
 
 if(blok === "admin" && pass === "12345"){
