@@ -59,7 +59,25 @@ Logout
 <h2>Peta Blok Rumah</h2>
 <div id="mapPerumahan"></div>
 
+  <div class="actionButtons">
+
+<button onclick="logoutSystem()">Logout</button>
+
+<button onclick="showPopup('iuranPopup')">
+Input Iuran
+</button>
+
+<button onclick="showPopup('pengeluaranPopup')">
+Input Pengeluaran
+</button>
+
+<button onclick="exportExcel()">
+Export Excel
+</button>
+
 </div>
+</div>
+  
 
 <script src="app.js"></script>
 
@@ -68,28 +86,6 @@ Logout
 if(!localStorage.getItem("wargaLogin") && !localStorage.getItem("adminLogin")){
 location.href="index.html"
 }
-
-</div>
-
-<!-- ACTION BUTTON -->
-
-<div class="actionButtons">
-
-<button onclick="logoutSystem()">Logout</button>
-
-<button id="btnIuran"
-onclick="if(localStorage.getItem('adminLogin')==='true'){showPopup('iuranPopup')}else{alert('Hanya admin')}">
-Input Iuran
-</button>
-
-<button id="btnPengeluaran"
-onclick="if(localStorage.getItem('adminLogin')==='true'){showPopup('pengeluaranPopup')}else{alert('Hanya admin')}">
-Input Pengeluaran
-</button> 
-
-<button id="btnExport" onclick="exportExcel()">
-Export Excel
-</button>
 
 </div>
 
