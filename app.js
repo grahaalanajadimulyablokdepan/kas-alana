@@ -167,28 +167,27 @@ LOGIN ADMIN
 
 function loginGate(){
 
+let blok = document.getElementById("loginBlok").value
+let rumah = document.getElementById("loginRumah").value
+let pass = document.getElementById("loginPass").value
+
+// ADMIN
 if(blok === "admin" && pass === "12345"){
 
 localStorage.setItem("adminLogin","true")
-
-document.getElementById("loginGate").style.display="none"
-document.getElementById("loginPanel").style.display="none"
-
 location.reload()
-
 return
 
 }
 
-/* LOGIN WARGA */
-
+// WARGA
 if(blok !== "" && rumah !== "" && pass === "12345"){
 
 localStorage.setItem("wargaLogin","true")
 localStorage.setItem("wargaBlok",blok)
 localStorage.setItem("wargaRumah",rumah)
 
-document.getElementById("loginGate").style.display="none"
+location.reload()
 
 }else{
 
