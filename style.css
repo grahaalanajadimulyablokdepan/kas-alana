@@ -1428,3 +1428,108 @@ font-size:16px;
 font-weight:600;
 cursor:pointer;
 }
+
+/* LOGIN CONTAINER */
+
+.loginBox{
+width:100%;
+max-width:420px;
+margin:auto;
+padding:30px;
+border-radius:16px;
+
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+
+/* INPUT */
+
+.loginBox input,
+.loginBox select{
+
+width:100%;
+padding:14px;
+margin-top:10px;
+
+border-radius:8px;
+border:none;
+
+background:rgba(255,255,255,0.1);
+color:white;
+font-size:15px;
+
+outline:none;
+}
+
+
+/* TOMBOL WRAPPER */
+
+.loginButtons{
+
+display:flex;
+flex-direction:column;
+gap:12px;
+margin-top:18px;
+
+}
+
+
+/* TOMBOL LOGIN */
+
+.btnLogin{
+
+width:100%;
+padding:14px;
+
+border:none;
+border-radius:10px;
+
+background:linear-gradient(90deg,#4fd1c5,#38bdf8);
+
+font-size:16px;
+font-weight:600;
+color:white;
+
+cursor:pointer;
+transition:0.2s;
+
+}
+
+.btnLogin:hover{
+
+transform:translateY(-2px);
+box-shadow:0 6px 15px rgba(0,0,0,0.3);
+
+}
+
+
+/* TOMBOL ADMIN */
+
+.btnAdmin{
+
+width:100%;
+padding:14px;
+
+border:none;
+border-radius:10px;
+
+background:linear-gradient(90deg,#3b82f6,#2563eb);
+
+font-size:16px;
+font-weight:600;
+color:white;
+
+cursor:pointer;
+transition:0.2s;
+
+}
+
+.btnAdmin:hover{
+
+transform:translateY(-2px);
+box-shadow:0 6px 15px rgba(0,0,0,0.3);
+
+}
