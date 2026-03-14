@@ -4721,3 +4721,22 @@ if(blok === "B3") max = 20
 rumahInput.placeholder = "1 - " + max
 
 }
+
+function loginAdminMode(){
+
+let pass = prompt("Masukkan password admin")
+
+if(pass === "12345"){
+
+localStorage.setItem("adminLogin","true")
+alert("Login Admin Berhasil")
+
+location.reload()
+
+}else{
+
+alert("Password salah")
+
+}
+
+}
