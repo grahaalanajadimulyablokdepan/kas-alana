@@ -4731,6 +4731,9 @@ if(blok === "B1") max = 20
 if(blok === "B2") max = 20
 if(blok === "B3") max = 20
 
+rumahInput.type = "number"
+rumahInput.min = 1
+rumahInput.max = max
 rumahInput.placeholder = "1 - " + max
 
 }
