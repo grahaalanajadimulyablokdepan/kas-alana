@@ -277,7 +277,15 @@ rumahSelect.appendChild(option)
 
 }
 
-document.getElementById("loginBlok").addEventListener("change", generateNomorRumah)
+window.addEventListener("load", function(){
+
+let blok = document.getElementById("loginBlok")
+
+if(blok){
+blok.addEventListener("change", generateNomorRumah)
+}
+
+})
 
 
 /* =========================
