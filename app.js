@@ -247,21 +247,29 @@ console.log("Warga login")
 GENERATE SEMUA RUMAH
 ========================= */
 
-function generateSemuaRumah(){
+function generateNomorRumah(){
 
-semuaRumah=[]
+let blok = document.getElementById("loginBlok").value
+let rumahSelect = document.getElementById("loginRumah")
 
-for(let blok in blokData){
+rumahSelect.innerHTML = ""
 
-let jumlah=blokData[blok]
+let max = 0
 
-for(let i=1;i<=jumlah;i++){
+if(blok === "A1") max = 18
+if(blok === "A2") max = 24
+if(blok === "A3") max = 10
+if(blok === "B1") max = 20
+if(blok === "B2") max = 20
+if(blok === "B3") max = 20
 
-let nomor=String(i).padStart(2,"0")
+for(let i=1;i<=max;i++){
 
-let kode=blok+"-"+nomor
+let option = document.createElement("option")
+option.value = i
+option.text = i
 
-semuaRumah.push(kode)
+rumahSelect.appendChild(option)
 
 }
 
