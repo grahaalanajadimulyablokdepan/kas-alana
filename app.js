@@ -4756,3 +4756,11 @@ alert("Password salah")
 }
 
 }
+
+function logout(){
+
+localStorage.clear()
+
+location.href="index.html"
+
+}
