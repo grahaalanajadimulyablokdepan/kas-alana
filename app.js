@@ -277,7 +277,7 @@ rumahSelect.appendChild(option)
 
 }
 
-}
+document.getElementById("loginBlok").addEventListener("change", generateNomorRumah)
 
 
 /* =========================
