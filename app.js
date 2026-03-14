@@ -458,7 +458,7 @@ window.addEventListener("load", function(){
 
 initSystem()
 
-})
+});
 
 /* =========================
 FIREBASE COLLECTION
