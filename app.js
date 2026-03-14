@@ -296,7 +296,9 @@ function generateBlokSelect(){
 
 let select=document.getElementById("blokIuran")
 
-if(!select) return
+if(!select){
+return
+}
 
 select.innerHTML=""
 
