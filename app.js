@@ -280,3 +280,25 @@ a.click()
 
 document.getElementById("blok").addEventListener("change", generateRumah)
 window.generateRumah = generateRumah
+
+function toggleMenu(){
+
+let menu=document.getElementById("sidebar")
+
+menu.classList.toggle("active")
+
+}
+
+function showPopup(id){
+
+document.getElementById(id).style.display="block"
+
+}
+
+function closePopup(){
+
+let popups=document.querySelectorAll(".popup")
+
+popups.forEach(p=>p.style.display="none")
+
+}
