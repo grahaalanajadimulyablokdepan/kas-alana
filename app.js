@@ -271,3 +271,5 @@ a.click()
 })
 
 }
+
+window.generateRumah = generateRumah
