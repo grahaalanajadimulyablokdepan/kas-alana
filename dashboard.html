@@ -3,7 +3,6 @@
 <head>
 
 <meta charset="UTF-8">
-
 <title>Dashboard Kas</title>
 
 <link rel="stylesheet" href="style.css">
@@ -17,139 +16,144 @@
 
 <body onload="loadDashboard()">
 
-<header>
+<header class="topbar">
 
 <div class="logoArea">
-
-<img src="logo.png">
-
-<h2>KAS BLOK DEPAN ALANA</h2>
-
+<img src="logo.png" class="logo">
+<span>KAS BLOK DEPAN ALANA</span>
 </div>
 
-<div class="menuBtn" onclick="toggleMenu()">☰</div>
+<div class="menuBtn" onclick="toggleMenu()">
+☰
+</div>
 
 </header>
 
-<div id="sideMenu">
 
-<button onclick="popupKontak()">Kontak Pengurus</button>
+<div class="sidebar" id="sidebar">
 
-<button onclick="popupKomplain()">Buat Komplain</button>
+<button onclick="showPopup('iuranPopup')">Input Iuran</button>
 
-<button onclick="popupDaftarKomplain()">Daftar Komplain</button>
+<button onclick="showPopup('keluarPopup')">Input Pengeluaran</button>
 
-<button id="adminMenu" onclick="popupInput()">Input Iuran</button>
+<button onclick="showPopup('komplainPopup')">Kirim Komplain</button>
+
+<button onclick="showPopup('daftarKomplainPopup')">Daftar Komplain</button>
+
+<button onclick="showPopup('kontakPopup')">Kontak Pengurus</button>
 
 <button onclick="exportExcel()">Export Excel</button>
-  
+
 <button onclick="logout()">Logout</button>
 
 </div>
 
+
 <div class="dashboard">
 
 <div class="card">
-
 <h3>Total Iuran</h3>
-
-<h1 id="totalIuran">Rp0</h1>
-
+<p id="totalIuran">Rp 0</p>
 </div>
 
 <div class="card">
-
 <h3>Total Pengeluaran</h3>
-
-<h1 id="totalKeluar">Rp0</h1>
-
+<p id="totalKeluar">Rp 0</p>
 </div>
 
 <div class="card">
-
 <h3>Total Kas</h3>
-
-<h1 id="totalKas">Rp0</h1>
-
+<p id="totalKas">Rp 0</p>
 </div>
 
 </div>
-  
-<!-- POPUP INPUT IURAN -->
-<div id="popupIuran" class="popup">
 
-<div class="popupContent">
+
+<!-- POPUP IURAN -->
+<div class="popup" id="iuranPopup">
+
+<div class="popupBox">
 
 <h3>Input Iuran</h3>
 
-<select id="iuranBlok">
+<select id="blokInput">
+
 <option>A1</option>
 <option>A2</option>
 <option>A3</option>
 <option>B1</option>
 <option>B2</option>
 <option>B3</option>
+
 </select>
 
-<input type="number" id="iuranRumah" placeholder="Nomor Rumah">
+<input id="rumahInput" placeholder="Nomor Rumah">
 
-<input type="number" id="jumlahIuran" placeholder="Jumlah">
+<input id="jumlahInput" placeholder="Jumlah">
 
 <button onclick="simpanIuran()">Simpan</button>
 
-<button onclick="closePopup('popupIuran')">Tutup</button>
+<button onclick="closePopup()">Tutup</button>
 
 </div>
 
 </div>
 
-  <div id="popupKeluar" class="popup">
 
-<div class="popupContent">
+<!-- POPUP PENGELUARAN -->
+<div class="popup" id="keluarPopup">
+
+<div class="popupBox">
 
 <h3>Input Pengeluaran</h3>
 
-<input id="ketKeluar" placeholder="Keterangan">
+<input id="ketInput" placeholder="Keterangan">
 
-<input id="jumlahKeluar" type="number" placeholder="Jumlah">
+<input id="jumlahKeluar" placeholder="Jumlah">
 
 <button onclick="simpanKeluar()">Simpan</button>
 
-<button onclick="closePopup('popupKeluar')">Tutup</button>
+<button onclick="closePopup()">Tutup</button>
 
 </div>
 
 </div>
 
-  <div id="popupKomplain" class="popup">
 
-<div class="popupContent">
+<!-- POPUP KOMPLAIN -->
+<div class="popup" id="komplainPopup">
+
+<div class="popupBox">
 
 <h3>Kirim Komplain</h3>
 
-<textarea id="pesanKomplain"></textarea>
+<textarea id="isiKomplain"></textarea>
 
 <button onclick="kirimKomplain()">Kirim</button>
 
-<button onclick="closePopup('popupKomplain')">Tutup</button>
+<button onclick="closePopup()">Tutup</button>
 
 </div>
 
 </div>
 
-  <div id="popupDaftarKomplain" class="popup">
 
-<div class="popupContent">
+<!-- POPUP KONTAK -->
+<div class="popup" id="kontakPopup">
 
-<h3>Daftar Komplain</h3>
+<div class="popupBox">
 
-<div id="listKomplain"></div>
+<h3>Kontak Pengurus</h3>
 
-<button onclick="closePopup('popupDaftarKomplain')">Tutup</button>
+<p>Ketua : 08xxxxxxxx</p>
+<p>Bendahara : 08xxxxxxxx</p>
+
+<button onclick="closePopup()">Tutup</button>
 
 </div>
 
 </div>
+
 
 <script src="app.js"></script>
 
