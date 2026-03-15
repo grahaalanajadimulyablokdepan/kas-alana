@@ -46,12 +46,51 @@ font-weight:bold;
 
 }
 
-header{
+/* HEADER */
+
+.header{
 
 display:flex;
 justify-content:space-between;
-padding:15px;
-background:#1e293b;
+align-items:center;
+
+padding:15px 25px;
+
+background:#111;
+
+position:relative;
+
+}
+
+/* LOGO */
+
+.logoBox{
+
+display:flex;
+align-items:center;
+gap:10px;
+
+}
+
+/* HAMBURGER */
+
+.hamburger{
+
+font-size:26px;
+cursor:pointer;
+
+color:white;
+
+padding:6px 10px;
+
+border-radius:6px;
+
+position:absolute;
+
+right:20px;
+top:50%;
+
+transform:translateY(-50%);
 
 }
 
