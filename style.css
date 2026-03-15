@@ -234,3 +234,32 @@ margin:120px auto;
 box-shadow:0 10px 30px rgba(0,0,0,0.4);
 
 }
+
+.popupBox input,
+.popupBox textarea{
+
+width:100%;
+padding:12px;
+
+margin:8px 0;
+
+border:none;
+border-radius:6px;
+
+background:rgba(255,255,255,0.15);
+color:white;
+
+}
+
+.popupBox button{
+
+padding:10px 15px;
+
+border:none;
+border-radius:6px;
+
+background:#2563eb;
+color:white;
+
+cursor:pointer;
+}
