@@ -4620,6 +4620,7 @@ localStorage.setItem("wargaBlok",blok)
 localStorage.setItem("wargaRumah",rumah)
 
 document.getElementById("loginGate").style.display="none"
+location.reload()
 
 }else{
 
