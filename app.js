@@ -2,10 +2,12 @@ let db = firebase.firestore()
 
 function generateRumah(){
 
-let blok = document.getElementById("blok").value
-let rumah = document.getElementById("rumah")
+let blok=document.getElementById("blok").value
+let rumah=document.getElementById("rumah")
 
 rumah.innerHTML=""
+
+if(blok=="") return
 
 let jumlah=0
 
@@ -21,7 +23,7 @@ for(let i=1;i<=jumlah;i++){
 let opt=document.createElement("option")
 
 opt.value=i
-opt.text=i
+opt.text="Rumah "+i
 
 rumah.appendChild(opt)
 
