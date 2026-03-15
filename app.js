@@ -272,4 +272,5 @@ a.click()
 
 }
 
+document.getElementById("blok").addEventListener("change", generateRumah)
 window.generateRumah = generateRumah
