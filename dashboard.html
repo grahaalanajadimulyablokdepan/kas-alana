@@ -12,23 +12,131 @@
 
 <script src="firebase.js"></script>
 
+<style>
+
+body{
+margin:0;
+font-family:sans-serif;
+background:#0b1b3a;
+color:white;
+}
+
+/* HEADER */
+
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 20px;
+background:#111;
+}
+
+.logoBox{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.logoBox img{
+width:35px;
+}
+
+.hamburger{
+font-size:26px;
+cursor:pointer;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+position:fixed;
+right:-260px;
+top:0;
+width:260px;
+height:100%;
+background:#1c1c1c;
+padding:20px;
+transition:0.3s;
+z-index:1000;
+}
+
+.sidebar.active{
+right:0;
+}
+
+.sidebar button{
+display:block;
+width:100%;
+margin:10px 0;
+padding:10px;
+border:none;
+background:#2d3f70;
+color:white;
+cursor:pointer;
+}
+
+/* DASHBOARD CARD */
+
+.dashboard{
+display:flex;
+gap:20px;
+padding:30px;
+}
+
+.card{
+background:#1d2b4f;
+padding:20px;
+border-radius:10px;
+width:200px;
+}
+
+/* POPUP */
+
+.popup{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+}
+
+.popupBox{
+background:white;
+color:black;
+padding:20px;
+width:300px;
+margin:100px auto;
+border-radius:10px;
+}
+
+</style>
+
 </head>
+
 
 <body onload="loadDashboard()">
 
-<header class="topbar">
 
-<div class="logoArea">
-<img src="logo.png" class="logo">
-<span>KAS BLOK DEPAN ALANA</span>
+<!-- HEADER -->
+
+<div class="header">
+
+<div class="logoBox">
+
+<img src="logo.png">
+
+<b>KAS BLOK DEPAN ALANA</b>
+
 </div>
 
-<div class="menuBtn" onclick="toggleMenu()">
-☰
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+
 </div>
 
-</header>
 
+<!-- SIDEBAR -->
 
 <div class="sidebar" id="sidebar">
 
@@ -38,8 +146,6 @@
 
 <button onclick="showPopup('komplainPopup')">Kirim Komplain</button>
 
-<button onclick="showPopup('daftarKomplainPopup')">Daftar Komplain</button>
-
 <button onclick="showPopup('kontakPopup')">Kontak Pengurus</button>
 
 <button onclick="exportExcel()">Export Excel</button>
@@ -48,6 +154,8 @@
 
 </div>
 
+
+<!-- DASHBOARD -->
 
 <div class="dashboard">
 
@@ -70,22 +178,14 @@
 
 
 <!-- POPUP IURAN -->
+
 <div class="popup" id="iuranPopup">
 
 <div class="popupBox">
 
 <h3>Input Iuran</h3>
 
-<select id="blokInput">
-
-<option>A1</option>
-<option>A2</option>
-<option>A3</option>
-<option>B1</option>
-<option>B2</option>
-<option>B3</option>
-
-</select>
+<input id="blokInput" placeholder="Blok">
 
 <input id="rumahInput" placeholder="Nomor Rumah">
 
@@ -101,6 +201,7 @@
 
 
 <!-- POPUP PENGELUARAN -->
+
 <div class="popup" id="keluarPopup">
 
 <div class="popupBox">
@@ -121,6 +222,7 @@
 
 
 <!-- POPUP KOMPLAIN -->
+
 <div class="popup" id="komplainPopup">
 
 <div class="popupBox">
@@ -139,6 +241,7 @@
 
 
 <!-- POPUP KONTAK -->
+
 <div class="popup" id="kontakPopup">
 
 <div class="popupBox">
@@ -153,6 +256,33 @@
 </div>
 
 </div>
+
+
+<script>
+
+function toggleMenu(){
+
+let menu=document.getElementById("sidebar")
+
+menu.classList.toggle("active")
+
+}
+
+function showPopup(id){
+
+document.getElementById(id).style.display="block"
+
+}
+
+function closePopup(){
+
+let pop=document.querySelectorAll(".popup")
+
+pop.forEach(p=>p.style.display="none")
+
+}
+
+</script>
 
 
 <script src="app.js"></script>
