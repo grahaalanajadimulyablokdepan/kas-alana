@@ -33,23 +33,22 @@ rumahSelect.appendChild(opt)
 
 }
 
-function login(){
+function loginAdmin(){
 
-let blok=document.getElementById("blok").value
-let rumah=document.getElementById("rumah").value
-let pass=document.getElementById("password").value
+let username = prompt("Username Admin")
+let password = prompt("Password Admin")
 
-if(pass>="1" && pass<="8"){
+console.log(username,password)
 
-localStorage.setItem("userBlok",blok)
-localStorage.setItem("userRumah",rumah)
-localStorage.setItem("role","warga")
+if(username === "admin" && password === "12345"){
+
+localStorage.setItem("role","admin")
 
 location.href="dashboard.html"
 
 }else{
 
-alert("Password salah")
+alert("Login admin gagal")
 
 }
 
