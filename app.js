@@ -303,3 +303,16 @@ let popups=document.querySelectorAll(".popup")
 popups.forEach(p=>p.style.display="none")
 
 }
+
+function cekRole(){
+
+let role = localStorage.getItem("role")
+
+if(role !== "admin"){
+
+document.getElementById("btnIuran").style.display="none"
+document.getElementById("btnKeluar").style.display="none"
+
+}
+
+}
